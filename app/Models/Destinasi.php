@@ -29,6 +29,9 @@ class Destinasi extends Model
         'longitude',
         'maps_url',
         'user_id',
+        'pengelola_nama',
+        'pengelola_wa',
+        'pengelola_foto',
     ];
 
     protected $casts = [
@@ -46,5 +49,35 @@ class Destinasi extends Model
     public function pengguna()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function detail()
+    {
+        return $this->hasMany(DestinasiDetail::class)->orderBy('urutan');
+    }
+
+    public function galeri()
+    {
+        return $this->hasMany(DestinasiGambar::class)->orderByDesc('is_utama');
+    }
+
+    public function highlight()
+    {
+        return $this->hasMany(DestinasiHighlight::class)->orderBy('urutan');
+    }
+
+    public function aktivitas()
+    {
+        return $this->belongsToMany(Aktivitas::class, 'destinasi_aktivitas');
+    }
+
+    public function budaya()
+    {
+        return $this->belongsToMany(Budaya::class, 'destinasi_budaya');
+    }
+
+    public function ulasan()
+    {
+        return $this->hasMany(Ulasan::class);
     }
 }

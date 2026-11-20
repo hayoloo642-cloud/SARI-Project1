@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -35,9 +36,10 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
 
-            // FULLTEXT pengganti destinasi_fts (FTS5 hanya ada di SQLite).
-            // MySQL otomatis re-index saat data berubah & query pakai whereFullText().
-            $table->fullText(['nama', 'deskripsi'], 'destinasi_nama_deskripsi_fulltext');
+            // FULLTEXT hanya untuk driver MySQL — SQLite tidak mendukungnya.
+            if (DB::connection()->getDriverName() === 'mysql') {
+                $table->fullText(['nama', 'deskripsi'], 'destinasi_nama_deskripsi_fulltext');
+            }
         });
     }
 

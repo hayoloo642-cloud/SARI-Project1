@@ -38,6 +38,17 @@ class AktivitasSeeder extends Seeder
             'Trekking gunung',
             'Tenun & kerajinan',
             'Renang',
+            'Trekking bambu',
+            'Belajar adat Bali Aga',
+            'Kuliner lokal',
+            'Beli kerajinan',
+            'Berenang kolam alami',
+            'Edukasi alam',
+            'Jalan pagi',
+            'Kano',
+            'Edukasi mangrove',
+            'Melukat (pemandian suci)',
+            'Sejarah & arkeologi',
         ];
 
         foreach ($aktivitas as $nama) {

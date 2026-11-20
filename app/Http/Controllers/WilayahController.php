@@ -70,7 +70,13 @@ class WilayahController extends Controller
      */
     public function destroy(Wilayah $wilayah)
     {
-        $wilayah->delete();
+        try {
+            $wilayah->delete();
+        } catch (\Illuminate\Database\QueryException $e) {
+            return response()->json([
+                'message' => 'Wilayah tidak dapat dihapus karena masih dipakai destinasi.',
+            ], 422);
+        }
 
         return response()->json([
             'message' => 'Wilayah berhasil dihapus.',
