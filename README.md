@@ -57,6 +57,33 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Menjalankan Proyek (SARI / Jejak-Bali)
+
+Prasyarat: **PHP 8.3+**, **Composer 2**, dan **MySQL** (XAMPP/Laragon/MariaDB).
+
+```bash
+composer install
+cp .env.example .env        # Windows: copy .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+```
+
+Buka `http://127.0.0.1:8000`.
+
+Jika muncul error **`MissingAppKeyException`** atau **"headers already sent"**, artinya file `.env` belum ada atau `APP_KEY` masih kosong. Jalankan:
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` di `.env` dengan MySQL lokal Anda, lalu buat database-nya:
+
+```sql
+CREATE DATABASE jejak_bali;
+```
+
 ## Catatan
 
 Uji perubahan untuk tab Changes di GitHub Desktop.
