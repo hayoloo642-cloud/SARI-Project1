@@ -1,32 +1,62 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Login — SARI Panel Admin</title>
-</head>
-<body>
-    <h1>Masuk Panel Admin SARI</h1>
+@extends('layouts.sari')
 
-    @if ($errors->any())
-        <p>{{ $errors->first() }}</p>
-    @endif
+@section('title', 'Masuk — SARI Panel Kontributor')
+@section('description', 'Masuk ke panel SARI untuk mengelola destinasi lokal Bali, moderasi ulasan, dan statistik kunjungan.')
+@section('content')
+    <main class="auth-wrap">
+        <div class="auth-card">
+            <span class="brand">SARI<b>.</b></span>
+            <h1>Masuk Panel Kontributor</h1>
+            <p class="auth-sub">Kelola destinasi, ulasan, dan statistik kunjungan desa Anda.</p>
 
-    <form method="POST" action="{{ route('login.attempt') }}">
-        @csrf
-        <p>
-            <label>Email<br>
-            <input type="email" name="email" value="{{ old('email') }}" required autofocus></label>
-        </p>
-        <p>
-            <label>Password<br>
-            <input type="password" name="password" required></label>
-        </p>
-        <p>
-            <label><input type="checkbox" name="remember" value="1"> Ingat saya</label>
-        </p>
-        <p><button type="submit">Masuk</button></p>
-    </form>
-</body>
-</html>
+            @if ($errors->any())
+                <div class="auth-error" role="alert">{{ $errors->first() }}</div>
+            @endif
+
+            <form method="POST" action="{{ route('login.attempt') }}">
+                @csrf
+
+                <label class="auth-field">
+                    <span>Email</span>
+                    <input class="form-control"
+                           type="email"
+                           name="email"
+                           value="{{ old('email') }}"
+                           autocomplete="email"
+                           placeholder="nama@contoh.id"
+                           required
+                           autofocus>
+                </label>
+
+                <label class="auth-field">
+                    <span>Password</span>
+                    <input class="form-control"
+                           type="password"
+                           name="password"
+                           autocomplete="current-password"
+                           placeholder="••••••••"
+                           required>
+                </label>
+
+                <label class="auth-remember">
+                    <input type="checkbox" name="remember" value="1">
+                    Ingat saya di perangkat ini
+                </label>
+
+                <button type="submit" class="btn btn-primary">Masuk</button>
+            </form>
+
+            <p class="auth-alt">
+                Belum punya akun?
+                <a href="{{ route('register') }}">Daftar sebagai pengunjung</a>
+            </p>
+            <p class="auth-alt" style="margin-top:0.6rem;">
+                Ingin menjadi kontributor desa?
+                <a href="https://wa.me/6281234567890?text=Halo%20SARI%2C%20saya%20ingin%20mendaftar%20sebagai%20kontributor." target="_blank" rel="noopener">Hubungi kami</a>
+            </p>
+            <p class="auth-alt" style="margin-top:0.6rem;">
+                <a href="{{ route('home') }}">&larr; Kembali ke beranda</a>
+            </p>
+        </div>
+    </main>
+@endsection
