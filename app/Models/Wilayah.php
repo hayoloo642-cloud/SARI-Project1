@@ -13,4 +13,9 @@ class Wilayah extends Model
         'nama',
         'deskripsi',
     ];
+
+    public function destinasi()
+    {
+        return $this->hasMany(Destinasi::class);
+    }
 }

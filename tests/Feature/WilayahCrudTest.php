@@ -15,15 +15,15 @@ class WilayahCrudTest extends TestCase
     {
         $this->seed(\Database\Seeders\WilayahSeeder::class);
 
-        $this->get('/wilayah')->assertOk()->assertJsonCount(6, 'data');
+        $this->get('/api/wilayah')->assertOk()->assertJsonCount(6, 'data');
         $id = Wilayah::where('slug', 'karangasem')->value('id');
-        $this->get("/wilayah/{$id}")->assertOk()->assertJsonPath('data.slug', 'karangasem');
+        $this->get("/api/wilayah/{$id}")->assertOk()->assertJsonPath('data.slug', 'karangasem');
     }
 
     public function test_tamu_tidak_bisa_menambah_wilayah(): void
     {
-        $this->post('/wilayah', ['slug' => 'x', 'nama' => 'X'])
-            ->assertRedirect('/login');
+        $this->post('/api/wilayah', ['slug' => 'x', 'nama' => 'X'])
+            ->assertUnauthorized();
     }
 
     public function test_kontributor_ditolak_403_saat_menambah(): void
@@ -31,7 +31,7 @@ class WilayahCrudTest extends TestCase
         $kontributor = User::factory()->create(['role' => 'kontributor']);
 
         $this->actingAs($kontributor)
-            ->post('/wilayah', ['slug' => 'bali-baru', 'nama' => 'Bali Baru'])
+            ->post('/api/wilayah', ['slug' => 'bali-baru', 'nama' => 'Bali Baru'])
             ->assertStatus(403);
     }
 
@@ -40,13 +40,13 @@ class WilayahCrudTest extends TestCase
         $admin = User::factory()->create(['role' => 'admin']);
 
         $this->actingAs($admin)
-            ->post('/wilayah', ['slug' => 'bali-baru', 'nama' => 'Bali Baru', 'deskripsi' => 'contoh'])
+            ->post('/api/wilayah', ['slug' => 'bali-baru', 'nama' => 'Bali Baru', 'deskripsi' => 'contoh'])
             ->assertCreated()
             ->assertJsonPath('data.slug', 'bali-baru');
 
         $this->actingAs($admin)
-            ->post('/wilayah', ['slug' => 'bali-baru', 'nama' => 'Bali Baru Lagi'])
-            ->assertSessionHasErrors('slug');
+            ->post('/api/wilayah', ['slug' => 'bali-baru', 'nama' => 'Bali Baru Lagi'])
+            ->assertJsonValidationErrors('slug');
     }
 
     public function test_admin_bisa_update_dan_hapus(): void
@@ -59,13 +59,13 @@ class WilayahCrudTest extends TestCase
 
         $id = Wilayah::where('slug', 'karangasem')->value('id');
         $this->actingAs($admin)
-            ->put("/wilayah/{$id}", ['nama' => 'Karangasem Updated'])
+            ->put("/api/wilayah/{$id}", ['nama' => 'Karangasem Updated'])
             ->assertOk()
             ->assertJsonPath('data.nama', 'Karangasem Updated');
 
         // Gianyar dipakai destinasi (Tahura Mangrove & Tirta Empul) → terblokir FK
         $idGianyar = Wilayah::where('slug', 'gianyar')->value('id');
-        $this->actingAs($admin)->delete("/wilayah/{$idGianyar}")->assertStatus(422);
+        $this->actingAs($admin)->delete("/api/wilayah/{$idGianyar}")->assertStatus(422);
         $this->assertDatabaseHas('wilayah', ['slug' => 'gianyar']);
     }
 }

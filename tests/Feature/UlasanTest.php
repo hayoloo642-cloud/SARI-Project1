@@ -24,7 +24,7 @@ class UlasanTest extends TestCase
         $this->seedSari();
         $destinasiId = \App\Models\Destinasi::where('slug', 'amed-pantai')->value('id');
 
-        $this->post('/ulasan', [
+        $this->post('/api/ulasan', [
             'destinasi_id' => $destinasiId,
             'nama_pengunjung' => 'I Wayan Test',
             'rating' => 5,
@@ -38,29 +38,47 @@ class UlasanTest extends TestCase
         ]);
     }
 
-    public function test_rating_di_luar_1_sampai_5_ditolak(): void
+    public function test_tamu_tidak_bisa_menyetujui_ulasannya_sendiri(): void
     {
         $this->seedSari();
+        $destinasiId = \App\Models\Destinasi::where('slug', 'amed-pantai')->value('id');
 
-        $this->post('/ulasan', [
+        $this->post('/api/ulasan', [
+            'destinasi_id' => $destinasiId,
+            'nama_pengunjung' => 'Tamu Nakal',
+            'rating' => 5,
+            'komentar' => 'Mencoba menyetujui sendiri.',
+            'status' => 'disetujui',
+        ])->assertCreated();
+
+        $this->assertDatabaseHas('ulasan', [
+            'nama_pengunjung' => 'Tamu Nakal',
+            'status' => 'pending',
+        ]);
+    }
+
+    public function test_rating_di_luar_1_sampai_5_ditolak(): void
+    {        $this->seedSari();
+
+        $this->post('/api/ulasan', [
             'destinasi_id' => \App\Models\Destinasi::where('slug', 'amed-pantai')->value('id'),
             'nama_pengunjung' => 'Test',
             'rating' => 7,
             'komentar' => 'x',
-        ])->assertSessionHasErrors('rating');
+        ])->assertJsonValidationErrors('rating');
     }
 
     public function test_index_ulasan_hanya_untuk_admin(): void
     {
         $this->seedSari();
 
-        $this->get('/ulasan')->assertRedirect('/login');
+        $this->get('/api/ulasan')->assertUnauthorized();
 
         $user = User::factory()->create(['role' => 'user']);
-        $this->actingAs($user)->get('/ulasan')->assertStatus(403);
+        $this->actingAs($user)->get('/api/ulasan')->assertStatus(403);
 
         $admin = User::factory()->create(['role' => 'admin']);
-        $this->actingAs($admin)->get('/ulasan')->assertOk();
+        $this->actingAs($admin)->get('/api/ulasan')->assertOk();
     }
 
     public function test_admin_bisa_menyetujui_ulasan(): void
@@ -69,7 +87,7 @@ class UlasanTest extends TestCase
         $admin = User::factory()->create(['role' => 'admin']);
 
         $destinasiId = \App\Models\Destinasi::where('slug', 'tirta-gangga')->value('id');
-        $this->post('/ulasan', [
+        $this->post('/api/ulasan', [
             'destinasi_id' => $destinasiId,
             'nama_pengunjung' => 'Moderasi Test',
             'rating' => 4,
@@ -79,7 +97,7 @@ class UlasanTest extends TestCase
         $ulasan = Ulasan::where('nama_pengunjung', 'Moderasi Test')->firstOrFail();
 
         $this->actingAs($admin)
-            ->patch("/ulasan/{$ulasan->id}", ['status' => 'disetujui'])
+            ->patch("/api/ulasan/{$ulasan->id}", ['status' => 'disetujui'])
             ->assertOk()
             ->assertJsonPath('data.status', 'disetujui');
     }
@@ -98,7 +116,7 @@ class UlasanTest extends TestCase
         ]);
 
         $this->actingAs($admin)
-            ->patch("/ulasan/{$ulasan->id}", ['status' => 'ngaco'])
-            ->assertSessionHasErrors('status');
+            ->patch("/api/ulasan/{$ulasan->id}", ['status' => 'ngaco'])
+            ->assertJsonValidationErrors('status');
     }
 }

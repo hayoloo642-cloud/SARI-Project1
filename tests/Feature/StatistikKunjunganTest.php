@@ -24,8 +24,8 @@ class StatistikKunjunganTest extends TestCase
         $destinasiId = \App\Models\Destinasi::where('slug', 'amed-pantai')->value('id');
         $payload = ['destinasi_id' => $destinasiId, 'tanggal' => '2026-11-19', 'jumlah' => 1];
 
-        $this->post('/statistik-kunjungan', $payload)->assertCreated();
-        $this->post('/statistik-kunjungan', $payload)->assertCreated();
+        $this->post('/api/statistik-kunjungan', $payload)->assertCreated();
+        $this->post('/api/statistik-kunjungan', $payload)->assertCreated();
 
         $this->assertDatabaseHas('statistik_kunjungan', [
             'destinasi_id' => $destinasiId,
@@ -38,9 +38,9 @@ class StatistikKunjunganTest extends TestCase
     {
         $this->seedDestinasi();
 
-        $this->get('/statistik-kunjungan')->assertRedirect('/login');
+        $this->get('/api/statistik-kunjungan')->assertUnauthorized();
 
         $admin = \App\Models\User::factory()->create(['role' => 'admin']);
-        $this->actingAs($admin)->get('/statistik-kunjungan')->assertOk();
+        $this->actingAs($admin)->get('/api/statistik-kunjungan')->assertOk();
     }
 }

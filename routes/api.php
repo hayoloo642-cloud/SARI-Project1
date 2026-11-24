@@ -1,0 +1,81 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WilayahController;
+use App\Http\Controllers\AktivitasController;
+use App\Http\Controllers\BudayaController;
+use App\Http\Controllers\KalenderController;
+use App\Http\Controllers\DestinasiController;
+use App\Http\Controllers\DestinasiDetailController;
+use App\Http\Controllers\DestinasiGambarController;
+use App\Http\Controllers\DestinasiHighlightController;
+use App\Http\Controllers\UlasanController;
+use App\Http\Controllers\StatistikKunjunganController;
+use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\BookmarkController;
+
+/*
+|--------------------------------------------------------------------------
+| API SARI (prefix /api)
+|--------------------------------------------------------------------------
+| Memakai middleware "web" agar autentikasi session + CSRF tetap bekerja
+| untuk panel admin dan form publik. Untuk klien eksternal (mobile/SPA),
+| nanti bisa ditambahkan token (Sanctum) di grup terpisah.
+*/
+
+Route::middleware('web')->name('api.')->group(function () {
+    // ---------- Publik: READ-ONLY ----------
+    Route::apiResource('wilayah', WilayahController::class)->only(['index', 'show'])->parameter('wilayah', 'wilayah');
+    Route::apiResource('aktivitas', AktivitasController::class)->only(['index', 'show'])->parameter('aktivitas', 'aktivitas');
+    Route::apiResource('budaya', BudayaController::class)->only(['index', 'show'])->parameter('budaya', 'budaya');
+    Route::apiResource('kalender', KalenderController::class)->only(['index', 'show'])->parameter('kalender', 'kalender');
+    Route::apiResource('destinasi', DestinasiController::class)->only(['index', 'show'])->parameter('destinasi', 'destinasi');
+    Route::apiResource('destinasi-detail', DestinasiDetailController::class)->only(['index', 'show'])->parameter('destinasi-detail', 'destinasi_detail');
+    Route::apiResource('destinasi-gambar', DestinasiGambarController::class)->only(['index', 'show'])->parameter('destinasi-gambar', 'destinasi_gambar');
+    Route::apiResource('destinasi-highlight', DestinasiHighlightController::class)->only(['index', 'show'])->parameter('destinasi-highlight', 'destinasi_highlight');
+    Route::apiResource('ulasan', UlasanController::class)->only(['show'])->parameter('ulasan', 'ulasan');
+
+    // Tamu boleh kirim ulasan & hitung kunjungan (dibatasi throttle)
+    Route::post('ulasan', [UlasanController::class, 'store'])->middleware('throttle:5,1')->name('ulasan.store');
+    Route::post('statistik-kunjungan', [StatistikKunjunganController::class, 'store'])->middleware('throttle:30,1')->name('statistik-kunjungan.store');
+
+    // ---------- Admin ATAU kontributor (tulis data destinasi) ----------
+    Route::middleware(['auth', 'role:admin,kontributor', 'throttle:10,1'])->group(function () {
+        Route::post('destinasi', [DestinasiController::class, 'store'])->name('destinasi.store');
+        Route::match(['put', 'patch'], 'destinasi/{destinasi}', [DestinasiController::class, 'update'])->name('destinasi.update');
+        Route::post('destinasi-detail', [DestinasiDetailController::class, 'store'])->name('destinasi-detail.store');
+        Route::match(['put', 'patch'], 'destinasi-detail/{destinasi_detail}', [DestinasiDetailController::class, 'update'])->name('destinasi-detail.update');
+        Route::post('destinasi-gambar', [DestinasiGambarController::class, 'store'])->name('destinasi-gambar.store');
+        Route::match(['put', 'patch'], 'destinasi-gambar/{destinasi_gambar}', [DestinasiGambarController::class, 'update'])->name('destinasi-gambar.update');
+        Route::post('destinasi-highlight', [DestinasiHighlightController::class, 'store'])->name('destinasi-highlight.store');
+        Route::match(['put', 'patch'], 'destinasi-highlight/{destinasi_highlight}', [DestinasiHighlightController::class, 'update'])->name('destinasi-highlight.update');
+    });
+
+    // ---------- Semua pengguna yang login (favorit pribadi) ----------
+    Route::middleware(['auth', 'throttle:10,1'])->group(function () {
+        Route::apiResource('bookmark', BookmarkController::class)->parameter('bookmark', 'bookmark');
+    });
+
+    // ---------- Hanya admin ----------
+    Route::middleware(['auth', 'role:admin', 'throttle:10,1'])->group(function () {
+        Route::delete('destinasi/{destinasi}', [DestinasiController::class, 'destroy'])->name('destinasi.destroy');
+        Route::delete('destinasi-detail/{destinasi_detail}', [DestinasiDetailController::class, 'destroy'])->name('destinasi-detail.destroy');
+        Route::delete('destinasi-gambar/{destinasi_gambar}', [DestinasiGambarController::class, 'destroy'])->name('destinasi-gambar.destroy');
+        Route::delete('destinasi-highlight/{destinasi_highlight}', [DestinasiHighlightController::class, 'destroy'])->name('destinasi-highlight.destroy');
+
+        Route::apiResource('wilayah', WilayahController::class)->except(['index', 'show'])->parameter('wilayah', 'wilayah');
+        Route::apiResource('aktivitas', AktivitasController::class)->except(['index', 'show'])->parameter('aktivitas', 'aktivitas');
+        Route::apiResource('budaya', BudayaController::class)->except(['index', 'show'])->parameter('budaya', 'budaya');
+        Route::apiResource('kalender', KalenderController::class)->except(['index', 'show'])->parameter('kalender', 'kalender');
+        Route::apiResource('pengaturan', PengaturanController::class)->parameter('pengaturan', 'pengaturan');
+
+        // Moderasi ulasan + statistik
+        Route::get('ulasan', [UlasanController::class, 'index'])->name('ulasan.index');
+        Route::match(['put', 'patch'], 'ulasan/{ulasan}', [UlasanController::class, 'update'])->name('ulasan.update');
+        Route::delete('ulasan/{ulasan}', [UlasanController::class, 'destroy'])->name('ulasan.destroy');
+        Route::get('statistik-kunjungan', [StatistikKunjunganController::class, 'index'])->name('statistik-kunjungan.index');
+        Route::get('statistik-kunjungan/{statistik_kunjungan}', [StatistikKunjunganController::class, 'show'])->name('statistik-kunjungan.show');
+        Route::match(['put', 'patch'], 'statistik-kunjungan/{statistik_kunjungan}', [StatistikKunjunganController::class, 'update'])->name('statistik-kunjungan.update');
+        Route::delete('statistik-kunjungan/{statistik_kunjungan}', [StatistikKunjunganController::class, 'destroy'])->name('statistik-kunjungan.destroy');
+    });
+});

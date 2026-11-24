@@ -40,12 +40,12 @@ class AdminAccessTest extends TestCase
     {
         $kontributor = User::factory()->create(['role' => 'kontributor']);
 
-        $this->actingAs($kontributor)->get('/pengaturan')->assertStatus(403);
+        $this->actingAs($kontributor)->get('/api/pengaturan')->assertStatus(403);
     }
 
     public function test_endpoint_pengaturan_ditolak_untuk_guest(): void
     {
-        $this->get('/pengaturan')->assertRedirect('/login');
+        $this->get('/api/pengaturan')->assertUnauthorized();
     }
 
     public function test_hapus_destinasi_hanya_admin(): void
@@ -59,7 +59,7 @@ class AdminAccessTest extends TestCase
         $kontributor = User::factory()->create(['role' => 'kontributor']);
         $admin = User::factory()->create(['role' => 'admin']);
 
-        $this->actingAs($kontributor)->delete("/destinasi/{$destinasiId}")->assertStatus(403);
-        $this->actingAs($admin)->delete('/destinasi/99999')->assertStatus(404);
+        $this->actingAs($kontributor)->delete("/api/destinasi/{$destinasiId}")->assertStatus(403);
+        $this->actingAs($admin)->delete('/api/destinasi/99999')->assertStatus(404);
     }
 }

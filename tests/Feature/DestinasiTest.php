@@ -30,15 +30,15 @@ class DestinasiTest extends TestCase
     {
         $this->seedSari();
 
-        $this->get('/destinasi')->assertOk()->assertJsonCount(12, 'data');
+        $this->get('/api/destinasi')->assertOk()->assertJsonCount(12, 'data');
     }
 
     public function test_tamu_tidak_bisa_menambah(): void
     {
         $this->seedSari();
 
-        $this->post('/destinasi', ['slug' => 'x', 'nama' => 'X'])
-            ->assertRedirect('/login');
+        $this->post('/api/destinasi', ['slug' => 'x', 'nama' => 'X'])
+            ->assertUnauthorized();
     }
 
     public function test_kontributor_bisa_membuat_dan_user_id_diisi_otomatis(): void
@@ -46,7 +46,7 @@ class DestinasiTest extends TestCase
         $this->seedSari();
         $kontributor = User::factory()->create(['role' => 'kontributor']);
 
-        $response = $this->actingAs($kontributor)->post('/destinasi', [
+        $response = $this->actingAs($kontributor)->post('/api/destinasi', [
             'slug' => 'destinasi-baru',
             'wilayah_id' => \App\Models\Wilayah::where('slug', 'karangasem')->value('id'),
             'nama' => 'Destinasi Baru',
@@ -64,9 +64,9 @@ class DestinasiTest extends TestCase
         $this->seedSari();
         $admin = User::factory()->create(['role' => 'admin']);
 
-        $response = $this->actingAs($admin)->post('/destinasi', []);
+        $response = $this->actingAs($admin)->post('/api/destinasi', []);
 
-        $response->assertSessionHasErrors(['slug', 'wilayah_id', 'nama', 'deskripsi', 'cara_masuk', 'etika']);
+        $response->assertJsonValidationErrors(['slug', 'wilayah_id', 'nama', 'deskripsi', 'cara_masuk', 'etika']);
     }
 
     public function test_show_memuat_relasi_detail_galeri_highlight_aktivitas_budaya(): void
@@ -74,7 +74,7 @@ class DestinasiTest extends TestCase
         $this->seedSari();
 
         $id = Destinasi::where('slug', 'amed-pantai')->value('id');
-        $this->get("/destinasi/{$id}")
+        $this->get("/api/destinasi/{$id}")
             ->assertOk()
             ->assertJsonPath('data.nama', 'Pantai Amed')
             ->assertJsonPath('data.detail.0.urutan', 0)
@@ -91,8 +91,8 @@ class DestinasiTest extends TestCase
         $admin = User::factory()->create(['role' => 'admin']);
 
         $id = Destinasi::where('slug', 'amed-pantai')->value('id');
-        $this->actingAs($kontributor)->delete("/destinasi/{$id}")->assertStatus(403);
-        $this->actingAs($admin)->delete("/destinasi/{$id}")->assertOk();
+        $this->actingAs($kontributor)->delete("/api/destinasi/{$id}")->assertStatus(403);
+        $this->actingAs($admin)->delete("/api/destinasi/{$id}")->assertOk();
         $this->assertDatabaseMissing('destinasi', ['id' => $id]);
     }
 }

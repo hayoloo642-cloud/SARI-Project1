@@ -23,13 +23,26 @@ class UlasanController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $isAdmin = $request->user()?->role === 'admin';
+
+        $rules = [
             'destinasi_id' => 'required|integer|exists:destinasi,id',
             'nama_pengunjung' => 'required|string|max:255',
             'rating' => 'required|integer|min:1|max:5',
-            'komentar' => 'nullable|string',
-            'status' => 'in:pending,disetujui,ditolak',
-        ]);
+            'komentar' => 'nullable|string|max:5000',
+        ];
+
+        // Hanya admin yang boleh menetapkan status saat membuat ulasan.
+        // Tamu selalu masuk sebagai "pending" (default kolom database).
+        if ($isAdmin) {
+            $rules['status'] = 'in:pending,disetujui,ditolak';
+        }
+
+        $validated = $request->validate($rules);
+
+        if ($isAdmin && $request->filled('status')) {
+            $validated['status'] = $request->input('status');
+        }
 
         $item = Ulasan::create($validated);
 
