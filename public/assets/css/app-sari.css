@@ -1,0 +1,517 @@
+/* =========================================
+   SARI x Jejak-Bali — lapisan penyesuaian
+   Dipakai di atas assets/css/style.css (SARI v5).
+   Berisi: ukuran ikon SVG Blade, komponen yang
+   di-render server, pagination, auth, dan perbaikan kecil.
+   ========================================= */
+
+/* Ikon dari komponen Blade tidak membawa atribut width/height.
+   Beri ukuran default agar tidak meledak, lalu sesuaikan per konteks. */
+svg:not([width]) {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.hero-tag svg,
+.kicker svg {
+    width: 16px;
+    height: 16px;
+}
+
+.hero-stats svg,
+.stat-pill svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn svg,
+.btn-nav-wa svg,
+.btn-nav-user svg,
+.btn-card svg,
+.btn-wa svg,
+.btn-back svg {
+    width: 17px;
+    height: 17px;
+}
+
+.nav-toggle svg {
+    width: 22px;
+    height: 22px;
+}
+
+.card-rate svg {
+    width: 14px;
+    height: 14px;
+    color: #f59e0b;
+}
+
+.card-meta svg {
+    width: 15px;
+    height: 15px;
+    color: var(--blue);
+}
+
+.card-bookmark-btn svg,
+.btn-bookmark-detail svg {
+    width: 17px;
+    height: 17px;
+    transition: transform 0.2s var(--ease);
+}
+
+.card-bookmark-btn[data-saved="true"] svg,
+.btn-bookmark-detail[data-saved="true"] svg {
+    fill: var(--terra);
+    stroke: var(--terra);
+}
+
+.card-bookmark-btn[data-saved="true"] svg {
+    transform: scale(1.08);
+}
+
+.etika-ico svg {
+    width: 24px;
+    height: 24px;
+}
+
+.value-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+.panel h3 svg {
+    width: 19px;
+    height: 19px;
+}
+
+.detail-content h2 svg,
+.detail-content h3 svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: -3px;
+}
+
+.detail-meta span svg {
+    width: 17px;
+    height: 17px;
+    color: var(--sky);
+}
+
+.link-more svg {
+    width: 15px;
+    height: 15px;
+    transition: var(--t);
+}
+
+.link-more:hover svg {
+    transform: translateX(4px);
+}
+
+.kal-card svg {
+    width: 15px;
+    height: 15px;
+    color: var(--blue);
+}
+
+.pengelola-card svg,
+.pg-wa svg {
+    width: 16px;
+    height: 16px;
+}
+
+.review-author-name svg,
+.write-review-card h4 svg,
+.reviews-header h3 svg {
+    width: 19px;
+    height: 19px;
+    color: var(--blue);
+}
+
+.info-row a svg {
+    width: 14px;
+    height: 14px;
+}
+
+.check-list svg {
+    width: 14px;
+    height: 14px;
+}
+
+.chip-soft svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Tombol hapus pencarian: markup <a>, gaya asli memakai button */
+.search-clear-btn {
+    display: inline-flex;
+    font-size: 1.25rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+/* Flash message setelah aksi */
+.sari-flash {
+    max-width: 720px;
+    width: calc(100% - 4rem);
+    margin: 86px auto -50px;
+    padding: 0.9rem 1.2rem;
+    background: var(--blue-soft);
+    border: 1px solid rgba(19, 111, 75, 0.25);
+    color: var(--blue-hover);
+    border-radius: var(--r-md);
+    font-size: 0.92rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 5;
+}
+
+/* Pagination server-side */
+.sari-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 3.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.sari-pagination .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.88rem;
+}
+
+/* Tombol simpan favorit di halaman detail */
+.btn-bookmark-detail[data-saved="true"] {
+    color: var(--terra) !important;
+}
+
+/* Form kontrol seragam */
+.form-control {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.78rem 0.95rem;
+    border: 1.5px solid var(--line);
+    border-radius: var(--r-md);
+    background: #fff;
+    color: var(--ink);
+    width: 100%;
+    box-sizing: border-box;
+    transition: var(--t);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(19, 111, 75, 0.12);
+}
+
+/* Aksi khusus di drawer mobile (login & WA) */
+.nav-mobile-action a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--r-md);
+    font-weight: 700;
+    font-size: 0.95rem;
+    background: var(--blue-soft);
+    color: var(--blue);
+}
+
+.nav-mobile-action a.nav-mobile-wa {
+    background: #e8f8f1;
+    color: #0b7a4b;
+}
+
+.nav-mobile-action a svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* Halaman login */
+.auth-wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 1.25rem 4rem;
+    background:
+        radial-gradient(1200px 600px at 100% -10%, rgba(19, 111, 75, 0.14), transparent 60%),
+        radial-gradient(900px 500px at 0% 110%, rgba(194, 86, 44, 0.10), transparent 55%),
+        var(--sand);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--r-xl);
+    box-shadow: var(--sh-lg);
+    padding: 2.6rem 2.4rem;
+}
+
+.auth-card .brand {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    font-size: 1.7rem;
+}
+
+.auth-card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.4rem;
+}
+
+.auth-card .auth-sub {
+    color: var(--muted);
+    font-size: 0.94rem;
+    margin-bottom: 1.8rem;
+}
+
+.auth-field {
+    display: block;
+    margin-bottom: 1.15rem;
+}
+
+.auth-field span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+}
+
+.auth-remember {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.4rem;
+}
+
+.auth-card .btn {
+    width: 100%;
+}
+
+.auth-error {
+    background: #fdecea;
+    border: 1px solid #f5c6c0;
+    color: #a12a1c;
+    border-radius: var(--r-md);
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+}
+
+.auth-alt {
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-top: 1.6rem;
+}
+
+.auth-alt a {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+/* Dashboard admin ringkas */
+.admin-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.admin-table-wrap {
+    overflow-x: auto;
+    margin: 0 -0.4rem;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 620px;
+}
+
+.admin-table th {
+    text-align: left;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.7rem 0.8rem;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 0.85rem 0.8rem;
+    border-bottom: 1px dashed var(--line);
+    color: var(--ink);
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+
+.badge-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--r-full);
+    font-size: 0.76rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-status.pending {
+    background: #fdf3d9;
+    color: #8a5b00;
+}
+
+.badge-status.disetujui {
+    background: var(--blue-soft);
+    color: var(--blue-hover);
+}
+
+.badge-status.ditolak {
+    background: #fdecea;
+    color: #a12a1c;
+}
+
+.admin-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    padding: 1.1rem 1.3rem;
+    border: 1.5px dashed var(--line);
+    border-radius: var(--r-md);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.admin-note svg {
+    color: var(--blue);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.admin-note p {
+    margin: 0;
+}
+
+.admin-note code {
+    background: var(--bg-soft);
+    border-radius: 4px;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.85em;
+    color: var(--navy);
+}
+
+/* Halaman akun pengunjung */
+.akun-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.akun-identitas {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+}
+
+.akun-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--r-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+    color: #fff;
+    font-family: "Sora", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: var(--sh-md);
+}
+
+.akun-dot {
+    margin: 0 0.35rem;
+}
+
+.akun-ringkas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.akun-stat {
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 1.4rem 1.5rem;
+}
+
+.akun-stat strong {
+    display: block;
+    font-family: "Sora", sans-serif;
+    font-size: 1.8rem;
+    color: var(--navy);
+    line-height: 1.1;
+}
+
+.akun-stat span {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.akun-section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.8rem;
+}
+
+@media (max-width: 720px) {
+    .akun-ringkas {
+        grid-template-columns: 1fr;
+    }
+
+    .akun-identitas {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 620px) {
+    .sari-flash {
+        margin-top: 74px;
+        width: calc(100% - 2.3rem);
+    }
+
+    .auth-card {
+        padding: 2rem 1.4rem;
+    }
+}
