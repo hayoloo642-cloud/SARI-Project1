@@ -23,6 +23,8 @@ class Destinasi extends Model
         'kontak',
         'rating_awal',
         'gambar',
+        'gambar_kredit',
+        'gambar_sumber',
         'is_unggulan',
         'status',
         'latitude',

@@ -20,6 +20,9 @@ class WilayahSeeder extends Seeder
             ['slug' => 'klungkung', 'nama' => 'Klungkung', 'deskripsi' => 'Pusat kerajaan klasik, seni, dan gerbang menuju Nusa Penida.'],
             ['slug' => 'bangli', 'nama' => 'Bangli', 'deskripsi' => 'Danau Batur, udara sejuk pegunungan, dan adat yang masih hidup.'],
             ['slug' => 'gianyar', 'nama' => 'Gianyar', 'deskripsi' => 'Jantung seni dan kerajinan Bali dengan pasar-pasar tradisional.'],
+            ['slug' => 'badung', 'nama' => 'Badung', 'deskripsi' => 'Kuta, Seminyak, Jimbaran, dan Nusa Dua — pusat pantai serta kuliner Bali selatan.'],
+            ['slug' => 'denpasar', 'nama' => 'Denpasar', 'deskripsi' => 'Ibu kota Bali dengan museum, pasar tradisional, pura kota, dan Pantai Sanur.'],
+            ['slug' => 'jembrana', 'nama' => 'Jembrana', 'deskripsi' => 'Bali barat yang tenang: pantai selancar, hutan Bali Barat, dan desa-desa lama.'],
         ];
 
         foreach ($wilayah as $row) {

@@ -20,6 +20,8 @@ $wilayah = Wilayah::with(['destinasi' => fn ($q) => $q->orderBy('nama')])
 
 $total = $wilayah->sum(fn ($w) => $w->destinasi->count());
 
+$wilayahDaftar = $wilayah->pluck('nama')->implode(', ');
+
 $lines = [];
 $lines[] = '# Dokumentasi Destinasi SARI';
 $lines[] = '';
@@ -28,7 +30,7 @@ $lines[] = 'Jangan mengedit tabel di bawah secara manual — ubah data lewat see
 $lines[] = '';
 $lines[] = '- **Tanggal generate:** ' . now()->locale('id')->translatedFormat('j F Y');
 $lines[] = '- **Total destinasi:** ' . $total;
-$lines[] = '- **Wilayah:** ' . $wilayah->count() . ' (Karangasem, Buleleng, Tabanan, Klungkung, Bangli, Gianyar)';
+$lines[] = '- **Wilayah:** ' . $wilayah->count() . ' (' . $wilayahDaftar . ')';
 $lines[] = '- **Target minimum:** 10 destinasi per wilayah';
 $lines[] = '';
 $lines[] = '> Catatan: tarif, jam buka, dan kontak adalah perkiraan dari informasi publik dan dapat berubah.';

@@ -4,8 +4,8 @@ Dokumen ini di-generate otomatis dari database melalui `scripts/generate-destina
 Jangan mengedit tabel di bawah secara manual — ubah data lewat seeder/panel admin lalu generate ulang.
 
 - **Tanggal generate:** 26 November 2026
-- **Total destinasi:** 60
-- **Wilayah:** 6 (Karangasem, Buleleng, Tabanan, Klungkung, Bangli, Gianyar)
+- **Total destinasi:** 96
+- **Wilayah:** 9 (Badung, Bangli, Buleleng, Denpasar, Gianyar, Jembrana, Karangasem, Klungkung, Tabanan)
 - **Target minimum:** 10 destinasi per wilayah
 
 > Catatan: tarif, jam buka, dan kontak adalah perkiraan dari informasi publik dan dapat berubah.
@@ -16,9 +16,12 @@ Jangan mengedit tabel di bawah secara manual — ubah data lewat seeder/panel ad
 
 | Wilayah | Jumlah | Status |
 |---|---:|---|
+| Badung | 16 | Memenuhi |
 | Bangli | 10 | Memenuhi |
 | Buleleng | 10 | Memenuhi |
+| Denpasar | 10 | Memenuhi |
 | Gianyar | 10 | Memenuhi |
+| Jembrana | 10 | Memenuhi |
 | Karangasem | 10 | Memenuhi |
 | Klungkung | 10 | Memenuhi |
 | Tabanan | 10 | Memenuhi |
@@ -30,6 +33,300 @@ Jangan mengedit tabel di bawah secara manual — ubah data lewat seeder/panel ad
 3. Jalankan `php artisan db:seed --class=DestinasiTambahanSeeder --force` (idempoten, aman diulang).
 4. Generate ulang dokumen: `php scripts/generate-destinasi-docs.php`.
 5. Untuk foto, simpan berkas di `public/assets/images/` lalu isi kolom `gambar` dengan `assets/images/namafile.jpg`.
+
+## Badung
+
+Kuta, Seminyak, Jimbaran, dan Nusa Dua — pusat pantai serta kuliner Bali selatan.
+
+Jumlah: **16 destinasi**.
+
+### Pantai Balangan
+
+- **Slug:** `pantai-balangan`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Rp 10.000; parkir ± Rp 5.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.7903, 115.1225
+- **Pengelola:** Desa Adat Ungasan
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-balangan.jpg
+
+Pantai panjang berpasir putih dengan ombak selancar dan deretan warung di bawah tebing.
+
+**Cara masuk:** Dari Uluwatu sekitar 15 menit ke utara.
+
+**Etika:** Ombak untuk peselancar berpengalaman. Jangan berenang di area arus balik dan jangan memarkir kendaraan di jalan sempit.
+
+### Pantai Bingin
+
+- **Slug:** `pantai-bingin`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Rp 10.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Pagi atau sore
+- **Koordinat:** -8.8069, 115.1158
+- **Pengelola:** Desa Adat Pecatu
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-bingin.jpg
+
+Pantai di bawah tebing dengan pasir putih, ombak selancar, dan penginapan kecil yang menghadap laut.
+
+**Cara masuk:** Dari Uluwatu sekitar 10 menit ke utara via Jalan Bingin.
+
+**Etika:** Turuni tangga dengan hati-hati dan jangan memblokir jalur warga. Hormati tamu penginapan dan jaga ketenangan.
+
+### Pantai Double Six
+
+- **Slug:** `pantai-double-six`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Pagi untuk surf, sore untuk sunset
+- **Koordinat:** -8.6836, 115.1553
+- **Pengelola:** Desa Adat Legian
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-double-six.jpg
+
+Pantai di ujung Legian yang populer untuk berselancar dan menonton sunset, dekat dengan Jalan Double Six.
+
+**Cara masuk:** Dari Legian sekitar 5 menit ke arah utara.
+
+**Etika:** Patuhi jalur peselancar dan jangan berenang di area ombak pecah. Jangan memarkir kendaraan di trotoar.
+
+### Pantai Dreamland
+
+- **Slug:** `pantai-dreamland`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Gratis; parkir ± Rp 5.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.8, 115.105
+- **Pengelola:** Desa Adat Pecatu
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-dreamland.jpg
+
+Pantai berpasir putih di kawasan Pecatu dengan ombak selancar dan tebing karang di kedua sisinya.
+
+**Cara masuk:** Dari Uluwatu sekitar 10 menit ke utara.
+
+**Etika:** Arus bisa kuat saat pasang. Jangan memanjat karang dan jangan meninggalkan sampah di pantai.
+
+### Pantai Echo Beach
+
+- **Slug:** `pantai-echo-beach`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Gratis
+- **Jam buka:** 06:00 – 22:00
+- **Waktu terbaik:** Pagi untuk surf, sore untuk makan malam
+- **Koordinat:** -8.6553, 115.128
+- **Pengelola:** Desa Adat Canggu
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-echo-beach.jpg
+
+Pantai berbatu di Canggu dengan ombak konsisten, warung seafood, dan pemandangan pura di tepi laut.
+
+**Cara masuk:** Dari Seminyak sekitar 20 menit ke utara via Jalan Pantai Batu Bolong.
+
+**Etika:** Arus balik bisa kuat — jangan berenang jauh. Hormati peselancar lokal dan jangan memotret upacara tanpa izin.
+
+### Pantai Jimbaran
+
+- **Slug:** `pantai-jimbaran`
+- **Kategori:** Pantai & Kuliner
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam; warung 16.00 – 23.00
+- **Waktu terbaik:** Sore sampai malam
+- **Koordinat:** -8.7906, 115.1653
+- **Pengelola:** Desa Adat Jimbaran
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-jimbaran.jpg
+
+Teluk berpasir putih dengan deretan warung ikan bakar di pasir, terkenal untuk makan malam sambil menikmati sunset.
+
+**Cara masuk:** Dari Bandara Ngurah Rai sekitar 15 menit ke selatan.
+
+**Etika:** Tawar harga seafood dengan sopan dan pastikan berat ditimbang di depan Anda. Jangan mengganggu nelayan yang membongkar hasil tangkapan.
+
+### Pantai Kedonganan
+
+- **Slug:** `pantai-kedonganan`
+- **Kategori:** Pantai & Kuliner
+- **Tarif:** Gratis
+- **Jam buka:** 05:00 – 22:00
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.7667, 115.1667
+- **Pengelola:** Desa Adat Kedonganan
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-kedonganan.jpg
+
+Pantai nelayan di teluk Jimbaran dengan pasar ikan dan warung seafood, lebih lokal daripada pantai resor.
+
+**Cara masuk:** Dari Bandara Ngurah Rai sekitar 10 menit ke selatan.
+
+**Etika:** Jangan menghalangi nelayan yang bekerja. Tawar harga dengan sopan dan hindari membeli karang atau satwa laut yang dilindungi.
+
+### Pantai Kuta
+
+- **Slug:** `pantai-kuta`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Gratis; parkir ± Rp 5.000
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Sore menjelang matahari terbenam
+- **Koordinat:** -8.7185, 115.1686
+- **Pengelola:** Desa Adat Kuta
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-kuta.jpg
+
+Pantai berpasir panjang yang menjadi wajah pariwisata Bali, terkenal dengan ombak selancar dan matahari terbenamnya.
+
+**Cara masuk:** Dari Bandara Ngurah Rai sekitar 15 menit ke utara.
+
+**Etika:** Berenang hanya di area yang diawasi penjaga pantai karena arus bisa kuat. Jangan memarkir kendaraan di badan jalan dan bawa turun sampah Anda.
+
+### Pantai Legian
+
+- **Slug:** `pantai-legian`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.695, 115.165
+- **Pengelola:** Desa Adat Legian
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-legian.jpg
+
+Kelanjutan Pantai Kuta yang sedikit lebih tenang, dengan deretan kafe, toko, dan akses langsung ke jalan Legian.
+
+**Cara masuk:** Berada di ujung utara Jalan Legian, Kuta.
+
+**Etika:** Hormati area upacara di pantai dan jangan mengganggu pemancing. Jangan meninggalkan sampah plastik di pasir.
+
+### Pantai Melasti
+
+- **Slug:** `pantai-melasti`
+- **Kategori:** Pantai & Tebing
+- **Tarif:** Rp 15.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.8476, 115.1947
+- **Pengelola:** Desa Adat Ungasan
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-melasti.jpg
+
+Pantai berpasir putih dengan tebing kapur dan jalan pesisir yang rapi, populer untuk berfoto dan berenang.
+
+**Cara masuk:** Dari Pandawa sekitar 5 menit ke timur.
+
+**Etika:** Jangan berdiri di tepi tebing untuk berfoto. Bawa turun sampah dan hindari berenang saat gelombang tinggi.
+
+### Pantai Nusa Dua
+
+- **Slug:** `pantai-nusa-dua`
+- **Kategori:** Pantai & Resort
+- **Tarif:** Gratis; parkir ± Rp 5.000
+- **Jam buka:** 06:00 – 19:00
+- **Waktu terbaik:** Pagi sampai sore
+- **Koordinat:** -8.795, 115.228
+- **Pengelola:** Bali Tourism Development Corporation
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-nusa-dua.jpg
+
+Pantai berpasir putih dengan air tenang di kawasan resor, cocok untuk berenang dan olahraga air keluarga.
+
+**Cara masuk:** Dari Bandara Ngurah Rai sekitar 20 menit ke timur.
+
+**Etika:** Beberapa bagian pantai berada di area resor — hormati akses tamu. Jangan menyentuh atau berdiri di atas karang.
+
+### Pantai Nyang Nyang
+
+- **Slug:** `pantai-nyang-nyang`
+- **Kategori:** Pantai & Trekking
+- **Tarif:** Gratis; parkir ± Rp 5.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.8444, 115.0944
+- **Pengelola:** Desa Adat Pecatu
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-nyang-nyang.jpg
+
+Pantai panjang yang masih sepi di balik bukit, dicapai lewat trekking dan populer untuk camping serta sunset.
+
+**Cara masuk:** Dari Uluwatu sekitar 10 menit, lalu trekking ±20 menit.
+
+**Etika:** Jalur trekking panas dan minim fasilitas — bawa air serta bawa turun sampah. Jangan turun setelah gelap tanpa penerangan.
+
+### Pantai Padang Padang
+
+- **Slug:** `pantai-padang-padang`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Rp 10.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.8103, 115.1039
+- **Pengelola:** Desa Adat Pecatu
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-padang-padang.jpg
+
+Pantai kecil di celah karang yang terkenal lewat film Eat Pray Love, dengan ombak kelas dunia.
+
+**Cara masuk:** Dari Uluwatu sekitar 10 menit ke utara.
+
+**Etika:** Jalur tangga sempit — jangan berhenti berlama-lama. Arus kuat, jadi berenang hanya di area yang aman.
+
+### Pantai Pandawa
+
+- **Slug:** `pantai-pandawa`
+- **Kategori:** Pantai & Tebing
+- **Tarif:** Rp 15.000; parkir ± Rp 5.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Pagi sebelum panas
+- **Koordinat:** -8.8506, 115.1875
+- **Pengelola:** Desa Adat Kutuh
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-pandawa.jpg
+
+Pantai berpasir putih di balik tebing kapur, dengan deretan patung Pandawa dan air laut yang tenang.
+
+**Cara masuk:** Dari Kuta sekitar 30 menit ke selatan via Jalan Raya Uluwatu.
+
+**Etika:** Jangan memanjat tebing atau menyentuh patung. Berenang hanya di area yang ditandai karena bagian lain berbatu.
+
+### Pantai Seminyak
+
+- **Slug:** `pantai-seminyak`
+- **Kategori:** Pantai & Sunset
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Sore 17.00 – 18.30
+- **Koordinat:** -8.6913, 115.1571
+- **Pengelola:** Desa Adat Seminyak
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-seminyak.jpg
+
+Pantai favorit untuk menikmati matahari terbenam, dengan beach club dan restoran di sepanjang garis pantai.
+
+**Cara masuk:** Dari Kuta sekitar 10 menit ke utara via Jalan Camplung Tanduk.
+
+**Etika:** Jangan berdiri di area upacara atau melangkahi sesajen. Jika memotret orang, minta izin lebih dulu.
+
+### Pantai Suluban
+
+- **Slug:** `pantai-suluban`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Rp 10.000
+- **Jam buka:** 07:00 – 19:00
+- **Waktu terbaik:** Pagi untuk surf
+- **Koordinat:** -8.8143, 115.0883
+- **Pengelola:** Desa Adat Pecatu
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-suluban.jpg
+
+Pantai di bawah Pura Uluwatu dengan gua karang dan ombak terkenal, dikenal juga sebagai Blue Point.
+
+**Cara masuk:** Dari Uluwatu sekitar 5 menit ke arah pantai.
+
+**Etika:** Tangga curam dan licin. Hormati area pura di atas tebing dan jangan memotret pemuja dari dekat.
 
 ## Bangli
 
@@ -47,7 +344,7 @@ Jumlah: **10 destinasi**.
 - **Koordinat:** -8.352, 115.316
 - **Pengelola:** Kelompok Pengelola Tibumana
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/air-terjun-tibumana.jpg
 
 Air terjun bertirai tipis dengan kolam dangkal yang mudah dijangkau, cocok untuk kunjungan singkat dari Ubud.
 
@@ -65,7 +362,7 @@ Air terjun bertirai tipis dengan kolam dangkal yang mudah dijangkau, cocok untuk
 - **Koordinat:** -8.3667, 115.3833
 - **Pengelola:** Kelompok Pengelola Tukad Cepung
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/air-terjun-tukad-cepung.jpg
 
 Air terjun di dalam celah tebing yang terkenal karena berkas cahaya masuk dari atas pada pagi hari.
 
@@ -83,7 +380,7 @@ Air terjun di dalam celah tebing yang terkenal karena berkas cahaya masuk dari a
 - **Koordinat:** -8.25, 115.3833
 - **Pengelola:** Desa Adat Batur
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/bukit-cinta-batur.jpg
 
 Bukit pandang di tepi kaldera Batur, populer untuk menikmati matahari terbit dan kabut pagi.
 
@@ -101,7 +398,7 @@ Bukit pandang di tepi kaldera Batur, populer untuk menikmati matahari terbit dan
 - **Koordinat:** -8.2667, 115.3833
 - **Pengelola:** Desa Adat Batur
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/danau-batur.jpg
 
 Danau kawah di bawah Gunung Batur dengan pemandangan kaldera dan desa-desa adat di tepiannya.
 
@@ -119,7 +416,7 @@ Danau kawah di bawah Gunung Batur dengan pemandangan kaldera dan desa-desa adat 
 - **Koordinat:** -8.4222, 115.3589
 - **Pengelola:** Bendesa Adat & Kelompok Sadar Wisata Penglipuran
 - **Kontak:** 0366-22208
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/penglipuran-desa.jpg
 
 Desa adat Bali Aga yang bersih, lestari, dan dikenal sebagai salah satu desa terbersih di dunia.
 
@@ -137,7 +434,7 @@ Desa adat Bali Aga yang bersih, lestari, dan dikenal sebagai salah satu desa ter
 - **Koordinat:** -8.2667, 115.4167
 - **Pengelola:** Desa Adat Trunyan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/desa-trunyan.jpg
 
 Desa Bali Aga di tepi Danau Batur dengan tradisi pemakaman unik dan kehidupan yang masih sangat tradisional.
 
@@ -155,7 +452,7 @@ Desa Bali Aga di tepi Danau Batur dengan tradisi pemakaman unik dan kehidupan ya
 - **Koordinat:** -8.4333, 115.35
 - **Pengelola:** Bendesa Adat Cempaga
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-kehen.jpg
 
 Pura kerajaan Bangli abad ke-11 dengan tangga besar, pohon beringin tua, dan arsitektur Bali klasik.
 
@@ -173,7 +470,7 @@ Pura kerajaan Bangli abad ke-11 dengan tangga besar, pohon beringin tua, dan ars
 - **Koordinat:** -8.2833, 115.35
 - **Pengelola:** Bendesa Adat Penulisan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-puncak-penulisan.jpg
 
 Pura tertinggi di Bali dengan deretan meru dan panorama Gunung Batur serta Gunung Agung.
 
@@ -191,7 +488,7 @@ Pura tertinggi di Bali dengan deretan meru dan panorama Gunung Batur serta Gunun
 - **Koordinat:** -8.255, 115.374
 - **Pengelola:** Bendesa Adat Batur
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-ulun-danu-batur.jpg
 
 Pura kedua terpenting di Bali setelah Besakih, dipindahkan ke atas kaldera untuk menghormati Dewi Danau.
 
@@ -209,7 +506,7 @@ Pura kedua terpenting di Bali setelah Besakih, dipindahkan ke atas kaldera untuk
 - **Koordinat:** -8.241, 115.408
 - **Pengelola:** Toya Devasya
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/toya-devasya.jpg
 
 Pemandian air panas alami di tepi Danau Batur dengan kolam menghadap gunung dan danau.
 
@@ -233,7 +530,7 @@ Jumlah: **10 destinasi**.
 - **Koordinat:** -8.2128, 115.1153
 - **Pengelola:** Kelompok Pemandu Aling-Aling
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/air-terjun-aling-aling.jpg
 
 Rangkaian air terjun di Sambangan dengan kolam alami dan jalur lompat air yang dipandu warga lokal.
 
@@ -251,7 +548,7 @@ Rangkaian air terjun di Sambangan dengan kolam alami dan jalur lompat air yang d
 - **Koordinat:** -8.2683, 115.1025
 - **Pengelola:** Kelompok Pengelola Banyumala
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/air-terjun-banyumala.jpg
 
 Air terjun kembar dengan kolam alami jernih di lembah hutan Wanagiri, sekitar 20 menit dari Munduk.
 
@@ -269,7 +566,7 @@ Air terjun kembar dengan kolam alami jernih di lembah hutan Wanagiri, sekitar 20
 - **Koordinat:** -8.1969, 115.1378
 - **Pengelola:** Kelompok Pengelola Air Terjun Gitgit
 - **Kontak:** 0815-6677-8899
-- **Foto:** assets/images/gitgit.jpg
+- **Foto:** assets/images/destinasi/gitgit-airterjun.jpg
 
 Air terjun 45 meter di hutan tropis dengan jalur melewati kebun cengkeh dan kopi warga.
 
@@ -287,7 +584,7 @@ Air terjun 45 meter di hutan tropis dengan jalur melewati kebun cengkeh dan kopi
 - **Koordinat:** -8.1778, 115.1827
 - **Pengelola:** Kelompok Pemandu Lokal Lemukih–Sekumpul
 - **Kontak:** 0821-9900-1122
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/sekumpul-air-terjun.jpg
 
 Gugusan 7 air terjun di lembah hijau Buleleng — disebut-sebut terindah di Bali.
 
@@ -305,7 +602,7 @@ Gugusan 7 air terjun di lembah hijau Buleleng — disebut-sebut terindah di Bali
 - **Koordinat:** -8.2333, 115.1167
 - **Pengelola:** Desa Adat Pancasari
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/danau-buyan.jpg
 
 Danau terbesar di Bali utara, dikelilingi kebun sayur dan hutan pinus di dataran tinggi Pancasari.
 
@@ -323,7 +620,7 @@ Danau terbesar di Bali utara, dikelilingi kebun sayur dan hutan pinus di dataran
 - **Koordinat:** -8.2725, 115.0897
 - **Pengelola:** Desa Adat Munduk & Kelompok Tani Hutan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/danau-tamblingan.jpg
 
 Danau vulkanik paling sunyi di Bali, dikelilingi hutan hujan dan kabut pagi di kawasan Munduk.
 
@@ -341,7 +638,7 @@ Danau vulkanik paling sunyi di Bali, dikelilingi hutan hujan dan kabut pagi di k
 - **Koordinat:** -8.1609, 115.0267
 - **Pengelola:** Kelompok Nelayan Lovina
 - **Kontak:** 0814-5566-7788
-- **Foto:** assets/images/lovina.jpg
+- **Foto:** assets/images/destinasi/lovina-pantai.jpg
 
 Laut tenang utara Bali tempat lumba-lumba liar muncul di pagi buta.
 
@@ -359,7 +656,7 @@ Laut tenang utara Bali tempat lumba-lumba liar muncul di pagi buta.
 - **Koordinat:** -8.1407, 114.6528
 - **Pengelola:** Kelompok Konservasi Karang Pemuteran
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-pemuteran.jpg
 
 Teluk tenang di barat laut Bali dengan proyek konservasi terumbu karang buatan dan snorkeling ramah pemula.
 
@@ -377,7 +674,7 @@ Teluk tenang di barat laut Bali dengan proyek konservasi terumbu karang buatan d
 - **Koordinat:** -8.1, 114.45
 - **Pengelola:** Balai TN Bali Barat & Kelompok Perahu Labuhan Lalang
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pulau-menjangan.jpg
 
 Pulau kecil di Taman Nasional Bali Barat dengan terumbu karang sehat dan air sangat jernih.
 
@@ -395,13 +692,199 @@ Pulau kecil di Taman Nasional Bali Barat dengan terumbu karang sehat dan air san
 - **Koordinat:** -8.0994, 115.1347
 - **Pengelola:** Bendesa Adat Sangsit
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-beji-sangsit.jpg
 
 Pura abad ke-15 di Sangsit dengan ukiran batu paras yang penuh detail, contoh arsitektur Bali utara.
 
 **Cara masuk:** Dari Singaraja sekitar 20 menit ke timur.
 
 **Etika:** Wajib memakai kamen dan sopan. Jangan menyentuh ukiran atau masuk ke area dalam saat upacara berlangsung.
+
+## Denpasar
+
+Ibu kota Bali dengan museum, pasar tradisional, pura kota, dan Pantai Sanur.
+
+Jumlah: **10 destinasi**.
+
+### Monumen Bajra Sandhi
+
+- **Slug:** `bajra-sandhi`
+- **Kategori:** Monumen & Sejarah
+- **Tarif:** Rp 25.000
+- **Jam buka:** 08:00 – 18:00
+- **Waktu terbaik:** Pagi atau sore
+- **Koordinat:** -8.671, 115.226
+- **Pengelola:** Dinas Kebudayaan Kota Denpasar
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/bajra-sandhi.jpg
+
+Monumen perjuangan rakyat Bali di Lapangan Puputan Renon, dengan diorama sejarah dan panorama kota dari atas.
+
+**Cara masuk:** Berada di kawasan Renon, Denpasar Selatan.
+
+**Etika:** Jangan memanjat bangunan atau duduk di tangga utama. Jaga ketenangan karena monumen juga menjadi ruang upacara.
+
+### Museum Bali
+
+- **Slug:** `museum-bali`
+- **Kategori:** Museum & Budaya
+- **Tarif:** Rp 20.000
+- **Jam buka:** 08:00 – 16:00 (Senin tutup)
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.6581, 115.2196
+- **Pengelola:** Dinas Kebudayaan Provinsi Bali
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/museum-bali.jpg
+
+Museum arkeologi dan budaya Bali di Denpasar dengan koleksi prasasti, arca, dan arsitektur tradisional.
+
+**Cara masuk:** Berada di Jalan Mayor Wisnu, Denpasar Timur.
+
+**Etika:** Jangan menyentuh koleksi dan jaga ketenangan ruang pamer. Minta izin sebelum memotret benda tertentu.
+
+### Pantai Matahari Terbit
+
+- **Slug:** `pantai-matahari-terbit`
+- **Kategori:** Pantai & Sunrise
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.6719, 115.2639
+- **Pengelola:** Desa Adat Sanur
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-matahari-terbit.jpg
+
+Pantai di utara Sanur yang menghadap langsung ke timur, spot favorit untuk menonton matahari terbit.
+
+**Cara masuk:** Dari Sanur sekitar 5 menit ke utara via Jalan Hang Tuah.
+
+**Etika:** Jangan berdiri di area nelayan menurunkan perahu. Bawa jaket karena angin pagi cukup dingin.
+
+### Pantai Mertasari
+
+- **Slug:** `pantai-mertasari`
+- **Kategori:** Pantai & Layang-layang
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.703, 115.256
+- **Pengelola:** Desa Adat Sanur
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-mertasari.jpg
+
+Pantai berpasir di Sanur yang menjadi lokasi Festival Layang-layang Bali dan tempat bermain keluarga.
+
+**Cara masuk:** Dari Sanur sekitar 5 menit ke selatan.
+
+**Etika:** Jangan menerbangkan layang-layang di dekat pura atau jalur pesawat. Bawa turun sampah dan awasi anak di air.
+
+### Pantai Padang Galak
+
+- **Slug:** `pantai-padang-galak`
+- **Kategori:** Pantai & Layang-layang
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.6503, 115.2439
+- **Pengelola:** Desa Adat Kesiman
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-padang-galak.jpg
+
+Pantai berpasir hitam di utara Sanur yang dikenal sebagai lokasi festival layang-layang tradisional.
+
+**Cara masuk:** Dari Sanur sekitar 10 menit ke utara via Jalan Padang Galak.
+
+**Etika:** Hindari berenang karena arus dan dasar berbatu. Jangan memarkir kendaraan di pematang atau area upacara.
+
+### Pantai Sanur
+
+- **Slug:** `pantai-sanur`
+- **Kategori:** Pantai & Sunrise
+- **Tarif:** Gratis
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Pagi 05.30 – 07.00
+- **Koordinat:** -8.687, 115.262
+- **Pengelola:** Desa Adat Sanur
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-sanur.jpg
+
+Pantai timur Denpasar dengan air tenang dan jalur sepeda di tepi laut, terkenal untuk matahari terbit.
+
+**Cara masuk:** Dari pusat Denpasar sekitar 15 menit ke timur.
+
+**Etika:** Berenang hanya di area yang ditandai karena ada karang. Jangan mengganggu upacara di pura tepi pantai.
+
+### Pasar Badung
+
+- **Slug:** `pasar-badung`
+- **Kategori:** Pasar Tradisional
+- **Tarif:** Gratis
+- **Jam buka:** 04:00 – 17:00
+- **Waktu terbaik:** Pagi 05.00 – 09.00
+- **Koordinat:** -8.6569, 115.213
+- **Pengelola:** PD Pasar Kota Denpasar
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pasar-badung.jpg
+
+Pasar induk terbesar di Bali yang menjual sayur, buah, rempah, dan kebutuhan upacara sejak pagi buta.
+
+**Cara masuk:** Berada di pusat Kota Denpasar, dekat Pasar Kumbasari.
+
+**Etika:** Jangan menghalangi jalur pedagang dan jangan memotret wajah tanpa izin. Tawar harga dengan sopan.
+
+### Pura Agung Jagatnatha
+
+- **Slug:** `pura-jagatnatha`
+- **Kategori:** Pura
+- **Tarif:** Gratis
+- **Jam buka:** 07:00 – 20:00
+- **Waktu terbaik:** Pagi atau sore
+- **Koordinat:** -8.6569, 115.2164
+- **Pengelola:** Bendesa Adat Denpasar
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pura-jagatnatha.jpg
+
+Pura kota terbesar di Denpasar dengan arsitektur megah dan taman yang menjadi ruang publik umat Hindu.
+
+**Cara masuk:** Berada di Jalan Mayor Wisnu, sebelah timur Lapangan Puputan Badung.
+
+**Etika:** Wajib memakai kamen dan berpakaian sopan. Jangan masuk area dalam saat upacara dan jangan memotret pemuja dari dekat.
+
+### Pura Sakenan & Pantai Serangan
+
+- **Slug:** `pura-sakenan-serangan`
+- **Kategori:** Pura & Pantai
+- **Tarif:** Donasi
+- **Jam buka:** 07:00 – 18:00
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.7189, 115.2447
+- **Pengelola:** Bendesa Adat Serangan
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pura-sakenan-serangan.jpg
+
+Pura di Pulau Serangan yang dikelilingi laut, ramai saat piodalan dan dikunjungi bersama pantai pasir putihnya.
+
+**Cara masuk:** Dari Sanur sekitar 15 menit via Jalan Tukad Punggawa.
+
+**Etika:** Wajib memakai kamen dan sopan. Saat piodalan, jangan memotret prosesi tanpa izin dan jangan menghalangi umat.
+
+### Taman Werdhi Budaya Art Centre
+
+- **Slug:** `taman-werdhi-budaya`
+- **Kategori:** Budaya & Seni
+- **Tarif:** Gratis; pertunjukan berbayar
+- **Jam buka:** 08:00 – 22:00
+- **Waktu terbaik:** Sore untuk pertunjukan
+- **Koordinat:** -8.666, 115.226
+- **Pengelola:** Dinas Kebudayaan Provinsi Bali
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/taman-werdhi-budaya.jpg
+
+Pusat seni dan budaya Bali di Denpasar dengan panggung pertunjukan, galeri, dan arsitektur tradisional.
+
+**Cara masuk:** Berada di Jalan Nusa Indah, Denpasar Timur.
+
+**Etika:** Jangan masuk ke panggung tanpa izin dan matikan suara ponsel saat pertunjukan. Jangan memotret dengan flash.
 
 ## Gianyar
 
@@ -419,7 +902,7 @@ Jumlah: **10 destinasi**.
 - **Koordinat:** -8.575, 115.29
 - **Pengelola:** Kelompok Pengelola Tegenungan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/air-terjun-tegenungan.jpg
 
 Air terjun lebar dekat Ubud dengan kolam luas dan deretan warung di tepi sungai.
 
@@ -437,7 +920,7 @@ Air terjun lebar dekat Ubud dengan kolam luas dan deretan warung di tepi sungai.
 - **Koordinat:** -8.523, 115.287
 - **Pengelola:** Bendesa Adat Bedulu
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/goa-gajah.jpg
 
 Candi gua abad ke-11 dengan mulut gua berukir raksasa dan kolam pemandian kuno di Bedulu.
 
@@ -455,7 +938,7 @@ Candi gua abad ke-11 dengan mulut gua berukir raksasa dan kolam pemandian kuno d
 - **Koordinat:** -8.5188, 115.259
 - **Pengelola:** Desa Adat Padangtegal
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/monkey-forest-ubud.jpg
 
 Hutan suci di Ubud dengan ratusan monyet ekor panjang dan pura kecil di antara pohon beringin.
 
@@ -473,7 +956,7 @@ Hutan suci di Ubud dengan ratusan monyet ekor panjang dan pura kecil di antara p
 - **Koordinat:** -8.592, 115.331
 - **Pengelola:** Kelompok Sadar Wisata Keramas
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-keramas.jpg
 
 Pantai berpasir hitam di pantai timur Gianyar dengan ombak konsisten dan suasana lebih tenang dari Kuta.
 
@@ -491,7 +974,7 @@ Pantai berpasir hitam di pantai timur Gianyar dengan ombak konsisten dan suasana
 - **Koordinat:** -8.56, 115.283
 - **Pengelola:** Paguyuban Pedagang Sukawati
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pasar-seni-sukawati.jpg
 
 Pasar tradisional tempat perajin Gianyar menjual kain, ukiran, dan suvenir langsung kepada pembeli.
 
@@ -509,7 +992,7 @@ Pasar tradisional tempat perajin Gianyar menjual kain, ukiran, dan suvenir langs
 - **Koordinat:** -8.4236, 115.3117
 - **Pengelola:** Bendesa Adat Tampaksiring
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-gunung-kawi.jpg
 
 Kompleks candi yang dipahat langsung di dinding tebing pada abad ke-11, dikelilingi sawah dan sungai.
 
@@ -527,7 +1010,7 @@ Kompleks candi yang dipahat langsung di dinding tebing pada abad ke-11, dikelili
 - **Koordinat:** -8.4164, 115.3147
 - **Pengelola:** Bendesa Adat Tampaksiring & Pengelola Pura Tirta Empul
 - **Kontak:** 0361-981190
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/tirta-empul-pura.jpg
 
 Pura mata air suci abad ke-10 di Tampaksiring — tempat melukat (pembersihan diri).
 
@@ -545,7 +1028,7 @@ Pura mata air suci abad ke-10 di Tampaksiring — tempat melukat (pembersihan di
 - **Koordinat:** -8.5069, 115.2625
 - **Pengelola:** Puri Saren Agung
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/puri-saren-agung.jpg
 
 Puri kerajaan Ubud di persimpangan pusat kota, masih menjadi pusat kegiatan adat dan pertunjukan tari.
 
@@ -563,7 +1046,7 @@ Puri kerajaan Ubud di persimpangan pusat kota, masih menjadi pusat kegiatan adat
 - **Koordinat:** -8.4312, 115.279
 - **Pengelola:** Subak Tegallalang
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/sawah-tegallalang.jpg
 
 Terasering sawah bertingkat di lembah utara Ubud, dengan subak dan warung kopi menghadap sawah.
 
@@ -581,13 +1064,199 @@ Terasering sawah bertingkat di lembah utara Ubud, dengan subak dan warung kopi m
 - **Koordinat:** -8.725, 115.1944
 - **Pengelola:** Balai Pengelolaan Hutan Mangrove & Kelompok Tani Hutan Pemogan
 - **Kontak:** 0361-1722991
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/mangrove-pemogan.jpg
 
 Hutan mangrove 1.300+ hektar di sisi jalan Bypass dengan jembatan kayu di atas laut.
 
 **Cara masuk:** Kendaraan pribadi dari Denpasar via Bypass Ngurah Rai, sekitar 20 menit.
 
 **Etika:** Jangan menginjak akar mangrove dan jangan memberi makan satwa liar. Tetap di jembatan — memberi makan atau menyentuh satwa dapat merusak ekosistem.
+
+## Jembrana
+
+Bali barat yang tenang: pantai selancar, hutan Bali Barat, dan desa-desa lama.
+
+Jumlah: **10 destinasi**.
+
+### Air Terjun Juwuk Manis
+
+- **Slug:** `air-terjun-juwuk-manis`
+- **Kategori:** Air Terjun
+- **Tarif:** Rp 10.000
+- **Jam buka:** 08:00 – 17:00
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.3667, 114.7333
+- **Pengelola:** Kelompok Sadar Wisata Juwuk Manis
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/air-terjun-juwuk-manis.jpg
+
+Air terjun di lembah hutan Jembrana dengan kolam alami, sering dikunjungi dalam perjalanan menuju Medewi.
+
+**Cara masuk:** Dari Negara sekitar 30 menit ke barat via Pekutatan.
+
+**Etika:** Jalur licin setelah hujan — gunakan alas kaki aman. Jangan berenang saat debit tinggi dan bawa turun sampah.
+
+### Bunut Bolong
+
+- **Slug:** `bunut-bolong`
+- **Kategori:** Alam & Budaya
+- **Tarif:** Donasi
+- **Jam buka:** 07:00 – 18:00
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.35, 114.8167
+- **Pengelola:** Desa Adat Manggissari
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/bunut-bolong.jpg
+
+Pohon bunut tua yang batangnya berlubang membentuk terowongan alami di atas jalan, dianggap keramat oleh warga.
+
+**Cara masuk:** Dari Negara sekitar 30 menit ke utara via Pekutatan.
+
+**Etika:** Jangan menyentuh atau melukai batang pohon. Hormati area persembahan dan jangan memarkir kendaraan di bawah pohon.
+
+### Desa Blimbingsari
+
+- **Slug:** `desa-blimbingsari`
+- **Kategori:** Desa & Budaya
+- **Tarif:** Donasi
+- **Jam buka:** 08:00 – 17:00
+- **Waktu terbaik:** Pagi
+- **Koordinat:** -8.3667, 114.5667
+- **Pengelola:** Desa Adat Blimbingsari
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/desa-blimbingsari.jpg
+
+Desa Bali dengan komunitas Kristen yang hidup berdampingan dengan adat Bali, dikenal dengan gereja bergaya arsitektur Bali.
+
+**Cara masuk:** Dari Negara sekitar 20 menit ke selatan.
+
+**Etika:** Hormati tempat ibadah dan jangan memotret jemaat saat beribadah. Berpakaian sopan dan minta izin sebelum masuk area gereja.
+
+### Pantai Medewi
+
+- **Slug:** `pantai-medewi`
+- **Kategori:** Pantai & Surf
+- **Tarif:** Gratis; parkir ± Rp 5.000
+- **Jam buka:** 06:00 – 19:00
+- **Waktu terbaik:** Pagi untuk surf, sore untuk sunset
+- **Koordinat:** -8.4239, 114.755
+- **Pengelola:** Desa Adat Medewi
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-medewi.jpg
+
+Pantai berpasir hitam di Bali barat dengan ombak selancar panjang, jauh dari keramaian Bali selatan.
+
+**Cara masuk:** Dari Denpasar sekitar 2 jam via Jalan Raya Denpasar–Gilimanuk.
+
+**Etika:** Arus bisa kuat, berenang hanya di area aman. Hormati peselancar lokal dan jangan memarkir kendaraan di pematang sawah.
+
+### Pantai Perancak
+
+- **Slug:** `pantai-perancak`
+- **Kategori:** Pantai & Budaya
+- **Tarif:** Gratis
+- **Jam buka:** 06:00 – 18:00
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.3833, 114.6333
+- **Pengelola:** Desa Adat Perancak
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-perancak.jpg
+
+Pantai nelayan di muara Sungai Perancak dengan perahu warna-warni dan suasana desa yang tenang.
+
+**Cara masuk:** Dari Negara sekitar 20 menit ke selatan.
+
+**Etika:** Jangan menghalangi nelayan yang bekerja dan jangan memotret tanpa izin. Bawa turun sampah karena fasilitas terbatas.
+
+### Pantai Pulukan
+
+- **Slug:** `pantai-pulukan`
+- **Kategori:** Pantai
+- **Tarif:** Gratis
+- **Jam buka:** 06:00 – 18:00
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.4, 114.8
+- **Pengelola:** Desa Adat Pulukan
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pantai-pulukan.jpg
+
+Pantai berpasir hitam di pesisir Pekutatan dengan ombak besar dan suasana desa yang masih sepi.
+
+**Cara masuk:** Dari Medewi sekitar 15 menit ke timur.
+
+**Etika:** Arus sangat kuat — jangan berenang. Jangan memarkir kendaraan di jalan sempit dan bawa turun sampah.
+
+### Pelabuhan Gilimanuk
+
+- **Slug:** `pelabuhan-gilimanuk`
+- **Kategori:** Pelabuhan & Sejarah
+- **Tarif:** Gratis (tiket ferry terpisah)
+- **Jam buka:** 24 jam
+- **Waktu terbaik:** Sore
+- **Koordinat:** -8.1667, 114.4333
+- **Pengelola:** ASDP Indonesia Ferry
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pelabuhan-gilimanuk.jpg
+
+Gerbang laut Bali ke Jawa, dengan ferry penyeberangan dan panorama Selat Bali saat matahari terbenam.
+
+**Cara masuk:** Berada di ujung barat Jalan Raya Denpasar–Gilimanuk.
+
+**Etika:** Ikuti aturan pelabuhan dan jangan memotret area pemeriksaan. Jaga barang bawaan dan jangan memberi uang kepada peminta di jalan.
+
+### Pelabuhan Perikanan Pengambengan
+
+- **Slug:** `pelabuhan-pengambengan`
+- **Kategori:** Pelabuhan & Kuliner
+- **Tarif:** Gratis
+- **Jam buka:** 04:00 – 17:00
+- **Waktu terbaik:** Pagi saat kapal bersandar
+- **Koordinat:** -8.3833, 114.5833
+- **Pengelola:** Pelabuhan Perikanan Nusantara Pengambengan
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pelabuhan-pengambengan.jpg
+
+Pelabuhan ikan terbesar di Bali barat, ramai saat kapal bersandar dan tempat membeli hasil laut segar.
+
+**Cara masuk:** Dari Negara sekitar 15 menit ke selatan.
+
+**Etika:** Jangan menghalangi jalur bongkar muat. Tawar harga dengan sopan dan jangan membeli satwa laut yang dilindungi.
+
+### Pura Rambut Siwi
+
+- **Slug:** `pura-rambut-siwi`
+- **Kategori:** Pura
+- **Tarif:** Donasi
+- **Jam buka:** 07:00 – 18:00
+- **Waktu terbaik:** Pagi atau sore
+- **Koordinat:** -8.4333, 114.7667
+- **Pengelola:** Bendesa Adat Yeh Embang
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/pura-rambut-siwi.jpg
+
+Pura di atas tebing menghadap Samudra Hindia, salah satu pura penting di jalur barat Bali.
+
+**Cara masuk:** Dari Negara sekitar 30 menit ke barat via Jalan Raya Gilimanuk.
+
+**Etika:** Wajib memakai kamen dan sopan. Jangan memotret pemuja atau prosesi tanpa izin, dan jangan berdiri di tepi tebing.
+
+### Taman Nasional Bali Barat
+
+- **Slug:** `taman-nasional-bali-barat`
+- **Kategori:** Taman Nasional
+- **Tarif:** Rp 25.000 + guide
+- **Jam buka:** 07:00 – 17:00
+- **Waktu terbaik:** Pagi saat satwa aktif
+- **Koordinat:** -8.1667, 114.4833
+- **Pengelola:** Balai Taman Nasional Bali Barat
+- **Kontak:** -
+- **Foto:** assets/images/destinasi/taman-nasional-bali-barat.jpg
+
+Kawasan konservasi di ujung barat Bali dengan hutan musim, savana, dan habitat jalak bali yang dilindungi.
+
+**Cara masuk:** Dari Gilimanuk sekitar 20 menit ke arah Labuhan Lalang.
+
+**Etika:** Wajib didampingi pemandu resmi. Jangan memberi makan satwa, membuat suara keras, atau membawa keluar apa pun dari kawasan.
 
 ## Karangasem
 
@@ -605,7 +1274,7 @@ Jumlah: **10 destinasi**.
 - **Koordinat:** -8.4547, 115.6019
 - **Pengelola:** Desa Adat Bugbug
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/bukit-asah-bugbug.jpg
 
 Padang rumput di atas tebing yang menghadap Selat Lombok, populer untuk camping dan menikmati matahari terbit.
 
@@ -623,7 +1292,7 @@ Padang rumput di atas tebing yang menghadap Selat Lombok, populer untuk camping 
 - **Koordinat:** -8.4819, 115.4419
 - **Pengelola:** Kelompok Sadar Wisata Sidemen
 - **Kontak:** 0817-8899-0011
-- **Foto:** assets/images/sidemen.jpg
+- **Foto:** assets/images/destinasi/sidemen-sawah.jpg
 
 Lembah tenang di kaki Gunung Agung, dijuluki "Ubud dua puluh tahun silam".
 
@@ -641,7 +1310,7 @@ Lembah tenang di kaki Gunung Agung, dijuluki "Ubud dua puluh tahun silam".
 - **Koordinat:** -8.4522, 115.6078
 - **Pengelola:** Bendesa Adat Tenganan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/desa-tenganan.jpg
 
 Desa Bali Aga dengan tata ruang kuno dan kain gringsing tenun ikat ganda, salah satu warisan tekstil tertua di Bali.
 
@@ -659,7 +1328,7 @@ Desa Bali Aga dengan tata ruang kuno dan kain gringsing tenun ikat ganda, salah 
 - **Koordinat:** -8.3499, 115.6568
 - **Pengelola:** Kelompok Sadar Wisata Amed
 - **Kontak:** 0812-3456-7890
-- **Foto:** assets/images/amed.jpg
+- **Foto:** assets/images/destinasi/amed-pantai.jpg
 
 Rangkaian desa nelayan berpasir hitam dengan terumbu karang yang paling sehat di Bali.
 
@@ -677,7 +1346,7 @@ Rangkaian desa nelayan berpasir hitam dengan terumbu karang yang paling sehat di
 - **Koordinat:** -8.4189, 115.5926
 - **Pengelola:** Kelompok Pengelola Pantai Bias Tugel
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-bias-tugel.jpg
 
 Pantai berpasir putih tersembunyi di balik tebing dekat Padang Bai, dengan air tenang dan cocok untuk berenang.
 
@@ -695,7 +1364,7 @@ Pantai berpasir putih tersembunyi di balik tebing dekat Padang Bai, dengan air t
 - **Koordinat:** -8.3369, 115.6637
 - **Pengelola:** Kelompok Nelayan Jemeluk
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-jemeluk.jpg
 
 Teluk kecil berpasir hitam di Amed dengan terumbu karang dangkal yang bisa dijangkau langsung dari bibir pantai.
 
@@ -713,7 +1382,7 @@ Teluk kecil berpasir hitam di Amed dengan terumbu karang dangkal yang bisa dijan
 - **Koordinat:** -8.2745, 115.5932
 - **Pengelola:** Kelompok Sadar Wisata Tulamben
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-tulamben.jpg
 
 Pantai berbatu tempat bangkai kapal Liberty tahun 1942 menjadi salah satu spot diving paling terkenal di Bali.
 
@@ -731,7 +1400,7 @@ Pantai berbatu tempat bangkai kapal Liberty tahun 1942 menjadi salah satu spot d
 - **Koordinat:** -8.3739, 115.4504
 - **Pengelola:** Bendesa Adat Besakih
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-agung-besakih.jpg
 
 Pura induk Sad Kahyangan di lereng Gunung Agung, kompleks terbesar di Bali dengan puluhan pura pengiring.
 
@@ -749,7 +1418,7 @@ Pura induk Sad Kahyangan di lereng Gunung Agung, kompleks terbesar di Bali denga
 - **Koordinat:** -8.3917, 115.6311
 - **Pengelola:** Bendesa Adat Desa Lempuyang / Pengelola Pura Penataran Agung
 - **Kontak:** -
-- **Foto:** assets/images/lempuyang.jpg
+- **Foto:** assets/images/destinasi/pura-lempuyang.jpg
 
 Pura Sad Kahyangan berusia ribuan tahun dengan candi bentar yang membingkai Gunung Agung.
 
@@ -767,7 +1436,7 @@ Pura Sad Kahyangan berusia ribuan tahun dengan candi bentar yang membingkai Gunu
 - **Koordinat:** -8.4116, 115.5873
 - **Pengelola:** Pengelola Unit Usaha Desa Ababi
 - **Kontak:** 0813-2233-4455
-- **Foto:** assets/images/tirta-gangga.jpg
+- **Foto:** assets/images/destinasi/tirta-gangga.jpg
 
 Taman air kerajaan 1948 dengan kolam koi, patung dewa, dan batu pijakan di atas air.
 
@@ -791,7 +1460,7 @@ Jumlah: **10 destinasi**.
 - **Koordinat:** -8.742, 115.47
 - **Pengelola:** Kelompok Sadar Wisata Bungamekar
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/angels-billabong.jpg
 
 Kolam alami di celah karang dengan air sebening kristal, terhubung ke laut saat pasang.
 
@@ -809,7 +1478,7 @@ Kolam alami di celah karang dengan air sebening kristal, terhubung ke laut saat 
 - **Koordinat:** -8.741, 115.463
 - **Pengelola:** Kelompok Sadar Wisata Bungamekar
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/broken-beach.jpg
 
 Laguna melingkar yang terbentuk dari runtuhan tebing, membentuk kolam alami dengan lengkungan batu.
 
@@ -827,7 +1496,7 @@ Laguna melingkar yang terbentuk dari runtuhan tebing, membentuk kolam alami deng
 - **Koordinat:** -8.716, 115.456
 - **Pengelola:** Desa Adat Sakti
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/crystal-bay.jpg
 
 Teluk berpasir putih di barat Nusa Penida dengan terumbu karang dan spot snorkeling yang tenang.
 
@@ -845,7 +1514,7 @@ Teluk berpasir putih di barat Nusa Penida dengan terumbu karang dan spot snorkel
 - **Koordinat:** -8.5353, 115.4042
 - **Pengelola:** Dinas Kebudayaan Klungkung
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/kertha-gosa.jpg
 
 Bale kerajaan abad ke-18 dengan lukisan langit-langit bergaya Kamasan dan museum sejarah Klungkung.
 
@@ -863,7 +1532,7 @@ Bale kerajaan abad ke-18 dengan lukisan langit-langit bergaya Kamasan dan museum
 - **Koordinat:** -8.7, 115.4333
 - **Pengelola:** Kelompok Sadar Wisata Lembongan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/mushroom-bay.jpg
 
 Teluk berpasir putih di Nusa Lembongan dengan air tenang, cocok untuk berenang dan snorkeling pemula.
 
@@ -881,7 +1550,7 @@ Teluk berpasir putih di Nusa Lembongan dengan air tenang, cocok untuk berenang d
 - **Koordinat:** -8.7667, 115.5167
 - **Pengelola:** Desa Adat Pejukutan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-atuh.jpg
 
 Pantai tersembunyi di balik tebing dengan batu karang besar, terasa jauh dari keramaian Nusa Penida.
 
@@ -899,7 +1568,7 @@ Pantai tersembunyi di balik tebing dengan batu karang besar, terasa jauh dari ke
 - **Koordinat:** -8.724, 115.449
 - **Pengelola:** Desa Adat Pejukutan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-diamond.jpg
 
 Pantai berpasir putih dengan batu karang berlubang dan air biru jernih di timur Nusa Penida.
 
@@ -917,7 +1586,7 @@ Pantai berpasir putih dengan batu karang berlubang dan air biru jernih di timur 
 - **Koordinat:** -8.751, 115.472
 - **Pengelola:** Kelompok Sadar Wisata Bungamekar
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-kelingking.jpg
 
 Tebing berbentuk kepala T-Rex yang ikonik di Nusa Penida, dengan pantai tersembunyi di bawahnya.
 
@@ -935,7 +1604,7 @@ Tebing berbentuk kepala T-Rex yang ikonik di Nusa Penida, dengan pantai tersembu
 - **Koordinat:** -8.7028, 115.4639
 - **Pengelola:** Bendesa Adat Suana
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-goa-giri-putri.jpg
 
 Pura di dalam gua karang di Nusa Penida, dianggap sebagai tempat pembersihan diri dan pengobatan tradisional.
 
@@ -953,7 +1622,7 @@ Pura di dalam gua karang di Nusa Penida, dianggap sebagai tempat pembersihan dir
 - **Koordinat:** -8.5333, 115.4667
 - **Pengelola:** Bendesa Adat Pesinggahan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-goa-lawah.jpg
 
 Pura di mulut gua yang menjadi rumah ribuan kelelawar, salah satu pura penting di jalur timur Bali.
 
@@ -977,7 +1646,7 @@ Jumlah: **10 destinasi**.
 - **Koordinat:** -8.3167, 115.1667
 - **Pengelola:** Kelompok Pengelola Nungnung
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/air-terjun-nungnung.jpg
 
 Air terjun tinggi di lembah hijau dengan sekitar 500 anak tangga, salah satu yang paling dramatis di Tabanan.
 
@@ -995,7 +1664,7 @@ Air terjun tinggi di lembah hijau dengan sekitar 500 anak tangga, salah satu yan
 - **Koordinat:** -8.2833, 115.1667
 - **Pengelola:** UPT Kebun Raya Bali
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/kebun-raya-bali.jpg
 
 Kebun botani di Bedugul dengan koleksi anggrek, tanaman obat, dan hutan pinus yang sejuk.
 
@@ -1013,7 +1682,7 @@ Kebun botani di Bedugul dengan koleksi anggrek, tanaman obat, dan hutan pinus ya
 - **Koordinat:** -8.5419, 115.123
 - **Pengelola:** Dinas Kebudayaan Tabanan
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/museum-subak.jpg
 
 Museum yang menjelaskan sistem irigasi subak, filosofi Tri Hita Karana, dan sejarah pertanian Bali.
 
@@ -1031,7 +1700,7 @@ Museum yang menjelaskan sistem irigasi subak, filosofi Tri Hita Karana, dan seja
 - **Koordinat:** -8.5333, 114.9667
 - **Pengelola:** Kelompok Surfing Balian
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-balian.jpg
 
 Pantai di muara sungai dengan ombak kelas dunia, dikelilingi sawah dan perkebunan kelapa.
 
@@ -1049,7 +1718,7 @@ Pantai di muara sungai dengan ombak kelas dunia, dikelilingi sawah dan perkebuna
 - **Koordinat:** -8.6333, 115.1
 - **Pengelola:** Kelompok Sadar Wisata Kedungu
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-kedungu.jpg
 
 Pantai berpasir gelap dengan ombak konsisten, sering dipakai peselancar lokal dan cocok untuk menikmati sore.
 
@@ -1067,7 +1736,7 @@ Pantai berpasir gelap dengan ombak konsisten, sering dipakai peselancar lokal da
 - **Koordinat:** -8.626, 115.096
 - **Pengelola:** Desa Adat Tibubiu
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pantai-pasut.jpg
 
 Pantai panjang berpasir hitam dengan muara sungai dan suasana tenang, jauh dari keramaian Kuta.
 
@@ -1085,7 +1754,7 @@ Pantai panjang berpasir hitam dengan muara sungai dan suasana tenang, jauh dari 
 - **Koordinat:** -8.3719, 115.1014
 - **Pengelola:** Bendesa Adat Pura Luhur Batukaru
 - **Kontak:** -
-- **Foto:** assets/images/batukaru.jpg
+- **Foto:** assets/images/destinasi/pura-batukaru.jpg
 
 Pura Sad Kahyangan yang tersembunyi di hutan berkabut lereng Gunung Batukaru.
 
@@ -1103,7 +1772,7 @@ Pura Sad Kahyangan yang tersembunyi di hutan berkabut lereng Gunung Batukaru.
 - **Koordinat:** -8.6212, 115.0868
 - **Pengelola:** Bendesa Adat Beraban
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-tanah-lot.jpg
 
 Pura di atas batu karang lepas pantai yang menjadi salah satu pemandangan matahari terbenam paling dikenal di Bali.
 
@@ -1121,7 +1790,7 @@ Pura di atas batu karang lepas pantai yang menjadi salah satu pemandangan mataha
 - **Koordinat:** -8.275, 115.1667
 - **Pengelola:** Bendesa Adat Candikuning
 - **Kontak:** -
-- **Foto:** belum tersedia (fallback desain)
+- **Foto:** assets/images/destinasi/pura-ulun-danu-beratan.jpg
 
 Pura di tepi Danau Beratan yang ikonik dengan meru bertingkat, dikelilingi kabut dataran tinggi Bedugul.
 
@@ -1139,7 +1808,7 @@ Pura di tepi Danau Beratan yang ikonik dengan meru bertingkat, dikelilingi kabut
 - **Koordinat:** -8.3698, 115.1311
 - **Pengelola:** Subak Jatiluwih & Desa Adat
 - **Kontak:** 0816-7788-9900
-- **Foto:** assets/images/jatiluwih.jpg
+- **Foto:** assets/images/destinasi/jatiluwih-sawah.jpg
 
 600 hektar sawah subak Warisan Dunia UNESCO di kaki Gunung Batukaru.
 

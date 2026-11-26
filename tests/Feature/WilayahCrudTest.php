@@ -15,7 +15,7 @@ class WilayahCrudTest extends TestCase
     {
         $this->seed(\Database\Seeders\WilayahSeeder::class);
 
-        $this->get('/api/wilayah')->assertOk()->assertJsonCount(6, 'data');
+        $this->get('/api/wilayah')->assertOk()->assertJsonCount(9, 'data');
         $id = Wilayah::where('slug', 'karangasem')->value('id');
         $this->get("/api/wilayah/{$id}")->assertOk()->assertJsonPath('data.slug', 'karangasem');
     }

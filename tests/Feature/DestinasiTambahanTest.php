@@ -4,6 +4,9 @@ namespace Tests\Feature;
 
 use App\Models\Destinasi;
 use App\Models\Wilayah;
+use Database\Seeders\AdminSeeder;
+use Database\Seeders\DestinasiBaliSeeder;
+use Database\Seeders\DestinasiFotoSeeder;
 use Database\Seeders\DestinasiSeeder;
 use Database\Seeders\DestinasiTambahanSeeder;
 use Database\Seeders\WilayahSeeder;
@@ -17,9 +20,12 @@ class DestinasiTambahanTest extends TestCase
     private function seedDestinasi(): void
     {
         $this->seed([
+            AdminSeeder::class,
             WilayahSeeder::class,
             DestinasiSeeder::class,
             DestinasiTambahanSeeder::class,
+            DestinasiBaliSeeder::class,
+            DestinasiFotoSeeder::class,
         ]);
     }
 
@@ -29,15 +35,20 @@ class DestinasiTambahanTest extends TestCase
 
         $jumlah = Wilayah::withCount('destinasi')->pluck('destinasi_count', 'slug');
 
-        foreach (['karangasem', 'buleleng', 'tabanan', 'klungkung', 'bangli', 'gianyar'] as $slug) {
+        $wilayah9 = [
+            'karangasem', 'buleleng', 'tabanan', 'klungkung',
+            'bangli', 'gianyar', 'badung', 'denpasar', 'jembrana',
+        ];
+
+        foreach ($wilayah9 as $slug) {
             $this->assertGreaterThanOrEqual(
                 10,
-                (int) $jumlah[$slug],
+                (int) ($jumlah[$slug] ?? 0),
                 "Wilayah {$slug} belum mencapai 10 destinasi."
             );
         }
 
-        $this->assertSame(60, Destinasi::count());
+        $this->assertSame(96, Destinasi::count());
     }
 
     public function test_slug_destinasi_tidak_duplikat(): void
@@ -69,12 +80,25 @@ class DestinasiTambahanTest extends TestCase
         }
     }
 
+    public function test_semua_destinasi_punya_gambar_cover_dan_file_fisik_ada(): void
+    {
+        $this->seedDestinasi();
+
+        foreach (Destinasi::all() as $destinasi) {
+            $this->assertNotEmpty($destinasi->gambar, "Gambar cover {$destinasi->slug} kosong.");
+            $path = public_path($destinasi->gambar);
+            $this->assertFileExists($path, "File fisik gambar {$destinasi->slug} tidak ditemukan di {$path}.");
+        }
+    }
+
     public function test_seeder_idempoten_saat_dijalankan_dua_kali(): void
     {
         $this->seedDestinasi();
         $jumlahPertama = Destinasi::count();
 
         $this->seed(DestinasiTambahanSeeder::class);
+        $this->seed(DestinasiBaliSeeder::class);
+        $this->seed(DestinasiFotoSeeder::class);
 
         $this->assertSame($jumlahPertama, Destinasi::count());
     }

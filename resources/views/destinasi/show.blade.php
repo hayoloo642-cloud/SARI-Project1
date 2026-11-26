@@ -64,6 +64,14 @@
                         </button>
                     </div>
                 </div>
+                @if ($destinasi->gambar_kredit)
+                    <div style="font-size:0.75rem; color:var(--text-light); margin-top:0.4rem; display:flex; justify-content:flex-end; gap:0.4rem; align-items:center;">
+                        <span>Foto: {{ $destinasi->gambar_kredit }}</span>
+                        @if ($destinasi->gambar_sumber)
+                            · <a href="{{ $destinasi->gambar_sumber }}" target="_blank" rel="noopener" style="color:var(--text-light); text-decoration:underline;">Sumber</a>
+                        @endif
+                    </div>
+                @endif
             </div>
 
             <div class="detail-grid">

@@ -84,20 +84,30 @@ Sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` di `.env` dengan MySQL
 CREATE DATABASE jejak_bali;
 ```
 
-## Dokumentasi Destinasi
+## Dokumentasi Destinasi & Foto
 
-Daftar lengkap destinasi (60 destinasi, 10 per wilayah untuk 6 wilayah yang tersedia) beserta tarif, jam buka, koordinat, pengelola, dan catatan etika ada di [`docs/destinasi.md`](docs/destinasi.md).
+- Daftar lengkap 96 destinasi di seluruh 9 kabupaten/kota Bali beserta tarif, jam buka, koordinat, pengelola, dan etika ada di [`docs/destinasi.md`](docs/destinasi.md).
+- Dokumentasi atribusi dan lisensi foto cover bebas hak cipta (CC0, CC BY, CC BY-SA, GFDL, public domain) ada di [`docs/foto-attribusi.md`](docs/foto-attribusi.md).
 
-Dokumen tersebut di-generate dari database:
+Dokumentasi destinasi di-generate otomatis dari database:
 
 ```bash
 php scripts/generate-destinasi-docs.php
 ```
 
-Untuk menambah atau memperbarui data, edit `database/seeders/DestinasiTambahanSeeder.php` lalu jalankan:
+Impor dan sinkronisasi foto dari Wikimedia Commons / Openverse:
+
+```bash
+php scripts/import-foto-wikimedia.php
+php artisan db:seed --class=DestinasiFotoSeeder --force
+```
+
+Untuk menambah atau memperbarui data seeder, jalankan:
 
 ```bash
 php artisan db:seed --class=DestinasiTambahanSeeder --force
+php artisan db:seed --class=DestinasiBaliSeeder --force
+php artisan db:seed --class=DestinasiFotoSeeder --force
 ```
 
 ## Catatan
