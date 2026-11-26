@@ -1,6 +1,6 @@
 @extends('layouts.sari')
 
-@section('title', 'Etika Budaya Bali — SARI')
+@section('title', 'Etika Budaya Bali — Jejak Bali')
 @section('description', 'Panduan etika wisatawan Bali: busana masuk pura, canang sari, aturan Nyepi, Bahasa Bali dasar, dan adat laut.')
 
 @section('content')

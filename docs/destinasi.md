@@ -1,4 +1,4 @@
-# Dokumentasi Destinasi SARI
+# Dokumentasi Destinasi Jejak Bali
 
 Dokumen ini di-generate otomatis dari database melalui `scripts/generate-destinasi-docs.php`.
 Jangan mengedit tabel di bawah secara manual — ubah data lewat seeder/panel admin lalu generate ulang.
@@ -10,7 +10,7 @@ Jangan mengedit tabel di bawah secara manual — ubah data lewat seeder/panel ad
 
 > Catatan: tarif, jam buka, dan kontak adalah perkiraan dari informasi publik dan dapat berubah.
 > Koordinat bersifat perkiraan untuk keperluan peta, bukan titik pintu masuk resmi.
-> Destinasi tanpa foto akan memakai fallback desain SARI (`.ph-fallback`).
+> Destinasi tanpa foto akan memakai fallback desain (`.ph-fallback`).
 
 ## Ringkasan per Wilayah
 

@@ -23,7 +23,7 @@ $total = $wilayah->sum(fn ($w) => $w->destinasi->count());
 $wilayahDaftar = $wilayah->pluck('nama')->implode(', ');
 
 $lines = [];
-$lines[] = '# Dokumentasi Destinasi SARI';
+$lines[] = '# Dokumentasi Destinasi Jejak Bali';
 $lines[] = '';
 $lines[] = 'Dokumen ini di-generate otomatis dari database melalui `scripts/generate-destinasi-docs.php`.';
 $lines[] = 'Jangan mengedit tabel di bawah secara manual — ubah data lewat seeder/panel admin lalu generate ulang.';
@@ -35,7 +35,7 @@ $lines[] = '- **Target minimum:** 10 destinasi per wilayah';
 $lines[] = '';
 $lines[] = '> Catatan: tarif, jam buka, dan kontak adalah perkiraan dari informasi publik dan dapat berubah.';
 $lines[] = '> Koordinat bersifat perkiraan untuk keperluan peta, bukan titik pintu masuk resmi.';
-$lines[] = '> Destinasi tanpa foto akan memakai fallback desain SARI (`.ph-fallback`).';
+$lines[] = '> Destinasi tanpa foto akan memakai fallback desain (`.ph-fallback`).';
 $lines[] = '';
 $lines[] = '## Ringkasan per Wilayah';
 $lines[] = '';

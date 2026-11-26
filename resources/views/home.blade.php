@@ -1,6 +1,6 @@
 @extends('layouts.sari')
 
-@section('title', 'SARI — Inti seni, adat, dan rasa Bali untuk wisatawan bijak')
+@section('title', 'Jejak Bali — Eksplorasi Wisata Lokal dan Budaya Pulau Dewata')
 @section('description', 'Temukan wisata lokal Bali di luar zona padat. Panduan etika budaya, destinasi asli, dan kontak langsung warga. Tanpa login, tanpa komisi.')
 
 @section('content')
@@ -75,9 +75,9 @@
     <section class="section">
         <div class="container">
             <div class="head">
-                <span class="kicker">Mengapa SARI</span>
+                <span class="kicker">Mengapa Jejak Bali</span>
                 <h2>Wisata yang <em>Berarti</em> untuk Semua</h2>
-                <p>SARI menghubungkan wisatawan dengan keaslian Bali, sambil mendistribusikan manfaat pariwisata ke seluruh pelosok Pulau Dewata.</p>
+                <p>Jejak Bali menghubungkan wisatawan dengan keaslian Bali, sambil mendistribusikan manfaat pariwisata ke seluruh pelosok Pulau Dewata.</p>
             </div>
 
             <div class="values">

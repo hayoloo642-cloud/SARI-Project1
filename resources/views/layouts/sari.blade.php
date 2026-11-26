@@ -1,5 +1,5 @@
 @php
-    $judulHalaman = trim($__env->yieldContent('title')) ?: 'SARI — Inti seni, adat, dan rasa Bali untuk wisatawan bijak';
+    $judulHalaman = trim($__env->yieldContent('title')) ?: 'Jejak Bali — Wisata Lokal dan Budaya Pulau Dewata';
     $deskripsiHalaman = trim($__env->yieldContent('description')) ?: 'Temukan wisata lokal Bali di luar zona padat. Panduan etika budaya, destinasi asli, dan kontak langsung warga.';
     $metaGambar = trim($__env->yieldContent('og_image')) ?: asset('assets/images/hero.jpg');
 @endphp
@@ -35,13 +35,13 @@
 
 <nav class="nav">
     <div class="nav-inner">
-        <a href="{{ route('home') }}" class="brand" aria-label="SARI — Beranda">SARI<b>.</b></a>
+        <a href="{{ route('home') }}" class="brand" aria-label="Jejak Bali — Beranda">Jejak Bali<b>.</b></a>
 
         <ul class="nav-links" id="nav-menu">
             <li><a href="{{ route('destinasi.index') }}" class="{{ request()->routeIs('destinasi.*') ? 'aktif' : '' }}">Destinasi Lokal</a></li>
             <li><a href="{{ route('etika.index') }}" class="{{ request()->routeIs('etika.*') ? 'aktif' : '' }}">Etika Budaya</a></li>
             <li><a href="{{ route('kalender.index') }}" class="{{ request()->routeIs('kalender.*') ? 'aktif' : '' }}">Kalender Agama</a></li>
-            <li><a href="{{ route('tentang') }}" class="{{ request()->routeIs('tentang') ? 'aktif' : '' }}">Tentang SARI</a></li>
+            <li><a href="{{ route('tentang') }}" class="{{ request()->routeIs('tentang') ? 'aktif' : '' }}">Tentang Jejak Bali</a></li>
 
             <li class="nav-mobile-divider" aria-hidden="true"></li>
             <li class="nav-mobile-action">
@@ -88,8 +88,8 @@
     <div class="container">
         <div class="footer-grid">
             <div>
-                <span class="footer-brand">SARI<b>.</b> <span class="aksara" style="color:rgba(255,255,255,.5); font-size:0.9em;">ᬩᬮᬶ</span></span>
-                <p>Inti seni, adat, dan rasa Bali untuk wisatawan bijak. Semua destinasi SARI dikurasi langsung bersama warga desa adat di 6 wilayah Bali — tanpa komisi, tanpa iklan, tanpa perantara.</p>
+                <span class="footer-brand">Jejak Bali<b>.</b> <span class="aksara" style="color:rgba(255,255,255,.5); font-size:0.9em;">ᬩᬮᬶ</span></span>
+                <p>Eksplorasi destinasi lokal, adat, dan budaya Pulau Dewata untuk wisatawan bijak. Semua destinasi dikurasi langsung bersama warga desa adat di 9 wilayah Bali — tanpa komisi, tanpa iklan, tanpa perantara.</p>
             </div>
             <div>
                 <h4>Jelajah</h4>
@@ -98,15 +98,15 @@
                     <li><a href="{{ route('destinasi.index') }}">Destinasi Lokal</a></li>
                     <li><a href="{{ route('etika.index') }}">Etika Budaya</a></li>
                     <li><a href="{{ route('kalender.index') }}">Kalender Agama</a></li>
-                    <li><a href="{{ route('tentang') }}">Tentang SARI</a></li>
+                    <li><a href="{{ route('tentang') }}">Tentang Jejak Bali</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Untuk Desa &amp; Pengelola</h4>
                 <ul>
-                    <li><a href="https://wa.me/6281234567890?text=Halo%20SARI%2C%20desa%20kami%20ingin%20mendaftarkan%20destinasi." target="_blank" rel="noopener">Daftarkan destinasi Anda</a></li>
+                    <li><a href="https://wa.me/6281234567890?text=Halo%20Jejak%20Bali%2C%20desa%20kami%20ingin%20mendaftarkan%20destinasi." target="_blank" rel="noopener">Daftarkan destinasi Anda</a></li>
                     <li><a href="{{ route('login') }}">Panel Kontributor</a></li>
-                    <li><a href="{{ route('tentang') }}">Cara kurasi SARI</a></li>
+                    <li><a href="{{ route('tentang') }}">Cara kurasi destinasi</a></li>
                     <li><a href="{{ route('privasi') }}">Kebijakan Privasi</a></li>
                 </ul>
             </div>
@@ -114,14 +114,14 @@
                 <h4>Kontak &amp; Layanan</h4>
                 <ul>
                     <li>WhatsApp: <a href="https://wa.me/6281234567890" target="_blank" rel="noopener">0812-3456-7890</a></li>
-                    <li>Email: <a href="mailto:info@sari-bali.id">info@sari-bali.id</a></li>
+                    <li>Email: <a href="mailto:info@jejakbali.id">info@jejakbali.id</a></li>
                     <li>Layanan: 08.00–21.00 WITA</li>
-                    <li><a href="https://wa.me/6281234567890?text=Halo%20SARI%2C%20saya%20mau%20update%20kalender%20ritual." target="_blank" rel="noopener">Update kalender ritual via WA</a></li>
+                    <li><a href="https://wa.me/6281234567890?text=Halo%20Jejak%20Bali%2C%20saya%20mau%20update%20kalender%20ritual." target="_blank" rel="noopener">Update kalender ritual via WA</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom" style="display:flex; justify-content:space-between; align-items:center; gap:0.8rem; flex-wrap:wrap;">
-            <span>&copy; {{ date('Y') }} SARI — Wisata Lokal Bali.</span>
+            <span>&copy; {{ date('Y') }} Jejak Bali — Wisata Lokal Bali.</span>
             <span>Dibuat bersama warga desa adat, untuk wisatawan yang menghormati.</span>
         </div>
     </div>

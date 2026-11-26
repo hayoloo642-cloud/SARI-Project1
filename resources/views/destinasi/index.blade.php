@@ -1,6 +1,6 @@
 @extends('layouts.sari')
 
-@section('title', 'Destinasi Lokal Bali — SARI')
+@section('title', 'Destinasi Lokal Bali — Jejak Bali')
 @section('description', 'Daftar destinasi wisata lokal Bali di luar zona padat. Filter wilayah, cari destinasi, dan hubungi pengelola langsung.')
 
 @push('head')
@@ -31,7 +31,7 @@
                     <div>
                         <h3>
                             <x-icon name="location" />
-                            Peta Destinasi SARI
+                            Peta Destinasi Jejak Bali
                         </h3>
                         <p class="map-hint">Klik penanda untuk melihat ringkas destinasi. Filter &amp; pencarian di bawah otomatis menyingkronkan peta.</p>
                     </div>

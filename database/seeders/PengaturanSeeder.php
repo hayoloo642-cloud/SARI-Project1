@@ -14,7 +14,7 @@ class PengaturanSeeder extends Seeder
     public function run(): void
     {
         $rows = [
-            ['key' => 'nama_situs', 'value' => 'SARI'],
+            ['key' => 'nama_situs', 'value' => 'Jejak Bali'],
             ['key' => 'tagline', 'value' => 'Inti seni, adat, dan rasa Bali untuk wisatawan bijak'],
             ['key' => 'whatsapp_pusat', 'value' => '6281234567890'],
         ];

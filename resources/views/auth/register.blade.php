@@ -1,12 +1,12 @@
 @extends('layouts.sari')
 
-@section('title', 'Daftar Akun — SARI')
-@section('description', 'Buat akun gratis SARI untuk menyimpan destinasi favorit dan berbagi ulasan perjalanan Anda di Bali.')
+@section('title', 'Daftar Akun — Jejak Bali')
+@section('description', 'Buat akun gratis Jejak Bali untuk menyimpan destinasi favorit dan berbagi ulasan perjalanan Anda di Bali.')
 
 @section('content')
     <main class="auth-wrap">
         <div class="auth-card">
-            <span class="brand">SARI<b>.</b></span>
+            <span class="brand">Jejak Bali<b>.</b></span>
             <h1>Buat Akun Pengunjung</h1>
             <p class="auth-sub">Gratis. Tanpa iklan. Simpan destinasi favorit dan bagikan pengalaman Anda.</p>
 
@@ -80,7 +80,7 @@
             </p>
             <p class="auth-alt" style="margin-top:0.6rem;">
                 Ingin mendaftarkan destinasi desa Anda?
-                <a href="https://wa.me/6281234567890?text=Halo%20SARI%2C%20saya%20ingin%20mendaftar%20sebagai%20kontributor." target="_blank" rel="noopener">Hubungi kami</a>
+                <a href="https://wa.me/6281234567890?text=Halo%20Jejak%20Bali%2C%20saya%20ingin%20mendaftar%20sebagai%20kontributor." target="_blank" rel="noopener">Hubungi kami</a>
             </p>
             <p class="auth-alt" style="margin-top:0.6rem;">
                 <a href="{{ route('home') }}">&larr; Kembali ke beranda</a>

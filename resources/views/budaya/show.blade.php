@@ -1,6 +1,6 @@
 @extends('layouts.sari')
 
-@section('title', $budaya->judul . ' — Etika Budaya SARI')
+@section('title', $budaya->judul . ' — Etika Budaya Jejak Bali')
 @section('description', Str::limit($budaya->ringkas, 155))
 
 @section('content')

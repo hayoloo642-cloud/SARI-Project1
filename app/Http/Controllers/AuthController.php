@@ -97,7 +97,7 @@ class AuthController extends Controller
 
         return redirect()
             ->route('akun')
-            ->with('status', 'Akun berhasil dibuat. Selamat datang di SARI!');
+            ->with('status', 'Akun berhasil dibuat. Selamat datang di Jejak Bali!');
     }
 
     /**

@@ -1,7 +1,7 @@
 @extends('layouts.sari')
 
-@section('title', 'Tentang SARI — Wisata Lokal Bali')
-@section('description', 'SARI menghubungkan wisatawan dengan destinasi lokal Bali yang dikelola warga desa adat, tanpa komisi dan tanpa perantara.')
+@section('title', 'Tentang Jejak Bali — Wisata Lokal Bali')
+@section('description', 'Jejak Bali menghubungkan wisatawan dengan destinasi lokal Bali yang dikelola warga desa adat, tanpa komisi dan tanpa perantara.')
 
 @section('content')
     <section class="hero sub">
@@ -10,7 +10,7 @@
         <div class="hero-content">
             <span class="hero-tag">
                 <x-icon name="globe" />
-                Tentang SARI
+                Tentang Jejak Bali
             </span>
             <h1>Siapa Kami, <em>Untuk Siapa</em></h1>
             <p>Platform wisata lokal Bali yang dikurasi bersama warga desa adat — tanpa komisi, tanpa iklan, tanpa perantara.</p>
@@ -21,8 +21,8 @@
         <div class="container">
             <div class="head left">
                 <span class="kicker">Misi Kami</span>
-                <h2>SARI untuk <em>Bali</em></h2>
-                <p>SARI adalah singkatan dari seni, adat, dan rasa Bali. Kami percaya pariwisata yang baik adalah pariwisata yang menghormati warga, adat, dan alam — sekaligus memberi manfaat ekonomi yang adil.</p>
+                <h2>Jejak Bali untuk <em>Pulau Dewata</em></h2>
+                <p>Jejak Bali adalah platform panduan eksplorasi pariwisata yang berakar pada adat, budaya, dan alam Bali. Kami percaya pariwisata yang baik adalah pariwisata yang menghormati warga, adat, dan alam — sekaligus memberi manfaat ekonomi yang adil.</p>
             </div>
 
             <div class="values">

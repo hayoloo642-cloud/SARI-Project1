@@ -35,7 +35,7 @@ class PublicPagesTest extends TestCase
             ->assertOk()
             ->assertSee('Wisata Lokal')
             ->assertSee('Pantai Amed')
-            ->assertSee('Peta Destinasi SARI');
+            ->assertSee('Peta Destinasi Jejak Bali');
 
         $this->get('/destinasi/amed-pantai')
             ->assertOk()

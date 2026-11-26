@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
         // 1. Akun admin utama SARI
         $admin = User::firstOrNew(['email' => 'admin@sari-bali.id']);
         if (! $admin->exists) {
-            $admin->name = 'Administrator SARI';
+            $admin->name = 'Administrator Jejak Bali';
             $admin->password = Hash::make('admin123');
             $admin->role = 'admin';
             $admin->bio = '';

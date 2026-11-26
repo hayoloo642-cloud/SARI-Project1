@@ -1,7 +1,7 @@
 @extends('layouts.sari')
 
-@section('title', 'Panel Admin — SARI')
-@section('description', 'Ringkasan panel SARI: destinasi, ulasan menunggu moderasi, dan kontributor.')
+@section('title', 'Panel Admin — Jejak Bali')
+@section('description', 'Ringkasan panel Jejak Bali: destinasi, ulasan menunggu moderasi, dan kontributor.')
 
 @section('content')
     <section class="section" style="padding-top: 8rem;">
@@ -11,7 +11,7 @@
                     <span class="kicker">Panel Kontributor</span>
                     <h2 style="margin: 0.8rem 0 0.5rem;">Halo, {{ Str::of(auth()->user()->name)->explode(' ')->first() }}</h2>
                     <p style="color: var(--muted); margin: 0;">
-                        Anda masuk sebagai <strong>{{ auth()->user()->role }}</strong>. Ringkasan data SARI ada di bawah ini.
+                        Anda masuk sebagai <strong>{{ auth()->user()->role }}</strong>. Ringkasan data Jejak Bali ada di bawah ini.
                     </p>
                 </div>
                 <form method="POST" action="{{ route('logout') }}">
@@ -24,7 +24,7 @@
                 <article class="value">
                     <div class="value-icon"><x-icon name="mountain" /></div>
                     <h3>{{ $totalDestinasi }} Destinasi</h3>
-                    <p>Total destinasi yang terdaftar di SARI, termasuk yang belum tayang di halaman publik.</p>
+                    <p>Total destinasi yang terdaftar di Jejak Bali, termasuk yang belum tayang di halaman publik.</p>
                 </article>
                 <article class="value">
                     <div class="value-icon"><x-icon name="star" /></div>

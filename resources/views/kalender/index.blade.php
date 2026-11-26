@@ -1,6 +1,6 @@
 @extends('layouts.sari')
 
-@section('title', 'Kalender Agama Bali — SARI')
+@section('title', 'Kalender Agama Bali — Jejak Bali')
 @section('description', 'Kalender hari suci Bali: Nyepi, Galungan, Kuningan, Saraswati dengan keterangan apa yang buka dan tutup.')
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.sari')
 
-@section('title', 'Akun Saya — SARI')
-@section('description', 'Profil akun SARI Anda dan daftar destinasi favorit yang tersimpan.')
+@section('title', 'Akun Saya — Jejak Bali')
+@section('description', 'Profil akun Jejak Bali Anda dan daftar destinasi favorit yang tersimpan.')
 @section('page', 'akun')
 
 @section('content')

@@ -1,11 +1,11 @@
 @extends('layouts.sari')
 
-@section('title', 'Masuk — SARI Panel Kontributor')
-@section('description', 'Masuk ke panel SARI untuk mengelola destinasi lokal Bali, moderasi ulasan, dan statistik kunjungan.')
+@section('title', 'Masuk — Jejak Bali Panel Kontributor')
+@section('description', 'Masuk ke panel Jejak Bali untuk mengelola destinasi lokal Bali, moderasi ulasan, dan statistik kunjungan.')
 @section('content')
     <main class="auth-wrap">
         <div class="auth-card">
-            <span class="brand">SARI<b>.</b></span>
+            <span class="brand">Jejak Bali<b>.</b></span>
             <h1>Masuk Panel Kontributor</h1>
             <p class="auth-sub">Kelola destinasi, ulasan, dan statistik kunjungan desa Anda.</p>
 
@@ -52,7 +52,7 @@
             </p>
             <p class="auth-alt" style="margin-top:0.6rem;">
                 Ingin menjadi kontributor desa?
-                <a href="https://wa.me/6281234567890?text=Halo%20SARI%2C%20saya%20ingin%20mendaftar%20sebagai%20kontributor." target="_blank" rel="noopener">Hubungi kami</a>
+                <a href="https://wa.me/6281234567890?text=Halo%20Jejak%20Bali%2C%20saya%20ingin%20mendaftar%20sebagai%20kontributor." target="_blank" rel="noopener">Hubungi kami</a>
             </p>
             <p class="auth-alt" style="margin-top:0.6rem;">
                 <a href="{{ route('home') }}">&larr; Kembali ke beranda</a>

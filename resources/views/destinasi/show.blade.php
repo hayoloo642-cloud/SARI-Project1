@@ -1,6 +1,6 @@
 @extends('layouts.sari')
 
-@section('title', $destinasi->nama . ' — SARI')
+@section('title', $destinasi->nama . ' — Jejak Bali')
 @section('description', Str::limit($destinasi->deskripsi, 155))
 @section('og_image', $destinasi->gambar ? (Str::startsWith($destinasi->gambar, ['http://', 'https://']) ? $destinasi->gambar : asset($destinasi->gambar)) : asset('assets/images/hero.jpg'))
 
