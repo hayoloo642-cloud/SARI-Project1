@@ -343,9 +343,13 @@
     items.forEach((d) => {
       if (!d.lat || !d.lng) return;
       const marker = L.marker([d.lat, d.lng]).addTo(map);
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${d.lat},${d.lng}`;
       marker.bindPopup(
         `<h4>${d.nama}</h4><p style="margin:0 0 0.4rem;font-size:0.82rem;color:#5d6a63;">${d.kategori || 'Destinasi'}</p>` +
-        `<a href="/destinasi/${d.slug}">Lihat detail &rarr;</a>`
+        `<div style="display:flex;gap:0.75rem;align-items:center;font-size:0.82rem;margin-top:0.35rem;">` +
+        `<a href="/destinasi/${d.slug}">Lihat detail &rarr;</a>` +
+        `<a href="${mapsUrl}" target="_blank" rel="noopener" style="color:#0284c7;font-weight:700;">Google Maps &rarr;</a>` +
+        `</div>`
       );
       bounds.push([d.lat, d.lng]);
     });

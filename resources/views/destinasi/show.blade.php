@@ -38,6 +38,10 @@
     $jumlahBintang = (int) round($rating);
 @endphp
 
+@php
+    $mapsDirectUrl = $destinasi->maps_url ?: (((float)$destinasi->latitude && (float)$destinasi->longitude) ? "https://www.google.com/maps/search/?api=1&query={$destinasi->latitude},{$destinasi->longitude}" : "https://www.google.com/maps/search/?api=1&query=" . urlencode($destinasi->nama . ' Bali'));
+@endphp
+
 @section('content')
     <section class="section" style="padding-top: 2.5rem;">
         <div class="container">
@@ -52,7 +56,9 @@
                 <div class="detail-hero-cap">
                     <h1>{{ $destinasi->nama }}</h1>
                     <div class="detail-meta">
-                        <span><x-icon name="location" /> {{ $destinasi->wilayah->nama ?? 'Bali' }}</span>
+                        <a href="{{ $mapsDirectUrl }}" target="_blank" rel="noopener" style="color:#fff; display:inline-flex; align-items:center; gap:0.35rem; text-decoration:none;" title="Buka di Google Maps">
+                            <x-icon name="location" /> <span>{{ $destinasi->wilayah->nama ?? 'Bali' }} (Buka Maps &rarr;)</span>
+                        </a>
                         <span><x-icon name="clock" /> {{ $destinasi->jam_buka ?: 'Sepanjang hari' }}</span>
                         <span><x-icon name="star" /> {{ number_format($rating, 1) }}</span>
                         <button type="button"

@@ -21,17 +21,20 @@
     }
 
     $kelasRate = $rating >= 4.5 ? 'rate-tinggi' : ($rating >= 4 ? 'rate-ok' : 'rate-rendah');
+    $mapsDirectUrl = $destinasi->maps_url ?: (((float)$destinasi->latitude && (float)$destinasi->longitude) ? "https://www.google.com/maps/search/?api=1&query={$destinasi->latitude},{$destinasi->longitude}" : "https://www.google.com/maps/search/?api=1&query=" . urlencode($destinasi->nama . ' Bali'));
 @endphp
 
 <article class="card">
     <div class="card-photo">
-        <div class="ph-fallback">
-            <x-icon :name="$ikonKategori" />
-            <span>{{ $destinasi->nama }}</span>
-        </div>
-        @if ($pathGambar)
-            <img src="{{ $pathGambar }}" alt="Foto {{ $destinasi->nama }} — destinasi wisata Bali" loading="lazy" onerror="this.remove()">
-        @endif
+        <a href="{{ route('destinasi.show', $destinasi->slug) }}" class="card-photo-link" aria-label="Lihat detail {{ $destinasi->nama }}" style="display:block; width:100%; height:100%;">
+            <div class="ph-fallback">
+                <x-icon :name="$ikonKategori" />
+                <span>{{ $destinasi->nama }}</span>
+            </div>
+            @if ($pathGambar)
+                <img src="{{ $pathGambar }}" alt="Foto {{ $destinasi->nama }} — destinasi wisata Bali" loading="lazy" onerror="this.remove()">
+            @endif
+        </a>
         <span class="card-badge">{{ $destinasi->kategori ?: 'Destinasi' }}</span>
         <div class="card-top-right">
             <span class="card-rate {{ $kelasRate }}"><x-icon name="star" /> {{ $rating }}</span>
@@ -46,9 +49,13 @@
         </div>
     </div>
     <div class="card-body">
-        <h3>{{ $destinasi->nama }}</h3>
+        <h3><a href="{{ route('destinasi.show', $destinasi->slug) }}" style="color:inherit; text-decoration:none;">{{ $destinasi->nama }}</a></h3>
         <p class="desc">{{ Str::limit($destinasi->deskripsi, 120) }}</p>
-        <div class="card-meta"><x-icon name="location" /> {{ $destinasi->wilayah->nama ?? 'Bali' }}</div>
+        <div class="card-meta">
+            <a href="{{ $mapsDirectUrl }}" target="_blank" rel="noopener" style="color:var(--text-light); text-decoration:none; display:inline-flex; align-items:center; gap:0.3rem;" title="Klik untuk petunjuk arah di Google Maps">
+                <x-icon name="location" /> <span>{{ $destinasi->wilayah->nama ?? 'Bali' }} (Peta &rarr;)</span>
+            </a>
+        </div>
         <div class="card-actions">
             <a href="{{ route('destinasi.show', $destinasi->slug) }}" class="btn-card dark">Lihat Detail</a>
             @if ($wa)

@@ -21,15 +21,14 @@ class DestinasiPageController extends Controller
         }
 
         if ($q !== '') {
-            if (DB::connection()->getDriverName() === 'mysql') {
-                $query->whereFullText(['nama', 'deskripsi'], $q);
-            } else {
-                $query->where(function ($sub) use ($q) {
-                    $sub->where('nama', 'like', "%{$q}%")
-                        ->orWhere('deskripsi', 'like', "%{$q}%")
-                        ->orWhere('kategori', 'like', "%{$q}%");
-                });
-            }
+            $query->where(function ($sub) use ($q) {
+                $sub->where('nama', 'like', "%{$q}%")
+                    ->orWhere('deskripsi', 'like', "%{$q}%")
+                    ->orWhere('kategori', 'like', "%{$q}%")
+                    ->orWhere('etika', 'like', "%{$q}%")
+                    ->orWhere('pengelola_nama', 'like', "%{$q}%")
+                    ->orWhereHas('wilayah', fn ($w) => $w->where('nama', 'like', "%{$q}%"));
+            });
         }
 
         // Hitung data peta sebelum paginate: paginate() menambahkan limit/offset
