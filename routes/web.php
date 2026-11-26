@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\AdminDestinasiController;
+use App\Http\Controllers\Admin\AdminBudayaController;
+use App\Http\Controllers\Admin\AdminKalenderController;
+use App\Http\Controllers\Admin\AdminUlasanController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DestinasiPageController;
@@ -57,13 +62,20 @@ Route::get('/akun', [AccountController::class, 'index'])
     ->name('akun');
 
 // ---------- Panel admin (auth + role admin/kontributor) ----------
-Route::middleware(['auth', 'role:admin,kontributor'])->prefix('admin')->group(function () {
-    Route::get('/', function () {
-        return view('admin.placeholder', [
-            'totalDestinasi' => Destinasi::count(),
-            'totalUlasanPending' => Ulasan::where('status', 'pending')->count(),
-            'totalKontributor' => User::where('role', 'kontributor')->count(),
-            'ulasanTerbaru' => Ulasan::with('destinasi')->latest()->take(6)->get(),
-        ]);
-    })->name('admin.home');
+Route::middleware(['auth', 'role:admin,kontributor'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', [AdminDashboardController::class, 'index'])->name('home');
+
+    // Destinasi CRUD
+    Route::resource('destinasi', AdminDestinasiController::class)->except(['show']);
+
+    // Etika Budaya CRUD
+    Route::resource('budaya', AdminBudayaController::class)->except(['show']);
+
+    // Kalender Agama CRUD
+    Route::resource('kalender', AdminKalenderController::class)->except(['show']);
+
+    // Moderasi Ulasan
+    Route::get('ulasan', [AdminUlasanController::class, 'index'])->name('ulasan.index');
+    Route::patch('ulasan/{ulasan}/status', [AdminUlasanController::class, 'updateStatus'])->name('ulasan.status');
+    Route::delete('ulasan/{ulasan}', [AdminUlasanController::class, 'destroy'])->name('ulasan.destroy');
 });
