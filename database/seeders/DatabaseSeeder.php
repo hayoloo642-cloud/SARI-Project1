@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             BudayaSeeder::class,
             KalenderSeeder::class,
             DestinasiSeeder::class,
+            DestinasiTambahanSeeder::class,
             DestinasiDetailSeeder::class,
             DestinasiGambarSeeder::class,
             DestinasiHighlightSeeder::class,

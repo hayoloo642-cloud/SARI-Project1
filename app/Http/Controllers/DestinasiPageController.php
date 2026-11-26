@@ -32,12 +32,8 @@ class DestinasiPageController extends Controller
             }
         }
 
-        $destinasi = $query
-            ->orderByDesc('is_unggulan')
-            ->orderBy('nama')
-            ->paginate(9)
-            ->withQueryString();
-
+        // Hitung data peta sebelum paginate: paginate() menambahkan limit/offset
+        // ke builder aslinya, sehingga clone setelahnya ikut terpotong.
         $petaDestinasi = (clone $query)
             ->whereNotNull('latitude')
             ->whereNotNull('longitude')
@@ -51,6 +47,12 @@ class DestinasiPageController extends Controller
                 'lng' => (float) $d->longitude,
             ])
             ->values();
+
+        $destinasi = $query
+            ->orderByDesc('is_unggulan')
+            ->orderBy('nama')
+            ->paginate(9)
+            ->withQueryString();
 
         $wilayah = Wilayah::orderBy('nama')->get();
 

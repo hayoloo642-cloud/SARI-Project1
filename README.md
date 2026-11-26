@@ -84,6 +84,22 @@ Sesuaikan `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` di `.env` dengan MySQL
 CREATE DATABASE jejak_bali;
 ```
 
+## Dokumentasi Destinasi
+
+Daftar lengkap destinasi (60 destinasi, 10 per wilayah untuk 6 wilayah yang tersedia) beserta tarif, jam buka, koordinat, pengelola, dan catatan etika ada di [`docs/destinasi.md`](docs/destinasi.md).
+
+Dokumen tersebut di-generate dari database:
+
+```bash
+php scripts/generate-destinasi-docs.php
+```
+
+Untuk menambah atau memperbarui data, edit `database/seeders/DestinasiTambahanSeeder.php` lalu jalankan:
+
+```bash
+php artisan db:seed --class=DestinasiTambahanSeeder --force
+```
+
 ## Catatan
 
 Uji perubahan untuk tab Changes di GitHub Desktop.
